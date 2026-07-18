@@ -1,0 +1,35 @@
+name: Hourly Agri-Data Update
+
+on:
+  schedule:
+    - cron: '0 * * * *' # हर घंटे अपने आप चलेगा
+  workflow_dispatch: # हमें मैन्युअली चलाने की अनुमति देगा
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install axios
+
+      - name: Run Hourly Update Script
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          GOV_API_KEY: ${{ secrets.GOV_API_KEY }}
+        run: node update_data.js
+
+      - name: Commit and Push Updates
+        run: |
+          git config --global user.name "AgriBot"
+          git config --global user.email "bot@agriadvisory.com"
+          git add data.json
+          git commit -m "Hourly Auto-Update: $(date -u)" || exit 0
+          git push

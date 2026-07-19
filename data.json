@@ -1,1 +1,371 @@
-{}
+{
+  "Latur": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "23°C",
+      "desc": "overcast clouds",
+      "humidity": "89%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Pune": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "25°C",
+      "desc": "overcast clouds",
+      "humidity": "72%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Nashik": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "23°C",
+      "desc": "overcast clouds",
+      "humidity": "83%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Nagpur": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "25°C",
+      "desc": "overcast clouds",
+      "humidity": "80%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Jalgaon": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "28°C",
+      "desc": "overcast clouds",
+      "humidity": "67%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Satara": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "22°C",
+      "desc": "overcast clouds",
+      "humidity": "88%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Solapur": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "24°C",
+      "desc": "overcast clouds",
+      "humidity": "81%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Akola": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "73%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Amravati": {
+    "last_updated": "7/19/2026, 7:27:56 AM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "73%",
+      "rain_prob": "Low/Moderate"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  }
+}

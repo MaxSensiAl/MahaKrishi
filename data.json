@@ -1,10 +1,10 @@
 {
   "Latur": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
       "temp": "23°C",
       "desc": "overcast clouds",
-      "humidity": "89%",
+      "humidity": "85%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -41,11 +41,11 @@
     }
   },
   "Pune": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
       "temp": "25°C",
       "desc": "overcast clouds",
-      "humidity": "72%",
+      "humidity": "94%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -82,11 +82,11 @@
     }
   },
   "Nashik": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
-      "temp": "23°C",
+      "temp": "25°C",
       "desc": "overcast clouds",
-      "humidity": "83%",
+      "humidity": "77%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -123,11 +123,11 @@
     }
   },
   "Nagpur": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
-      "temp": "25°C",
+      "temp": "27°C",
       "desc": "overcast clouds",
-      "humidity": "80%",
+      "humidity": "73%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -164,11 +164,11 @@
     }
   },
   "Jalgaon": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
-      "temp": "28°C",
+      "temp": "30°C",
       "desc": "overcast clouds",
-      "humidity": "67%",
+      "humidity": "58%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -205,11 +205,11 @@
     }
   },
   "Satara": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
       "temp": "22°C",
       "desc": "overcast clouds",
-      "humidity": "88%",
+      "humidity": "84%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -246,11 +246,11 @@
     }
   },
   "Solapur": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
-      "temp": "24°C",
+      "temp": "25°C",
       "desc": "overcast clouds",
-      "humidity": "81%",
+      "humidity": "77%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -287,11 +287,11 @@
     }
   },
   "Akola": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
-      "temp": "27°C",
+      "temp": "28°C",
       "desc": "overcast clouds",
-      "humidity": "73%",
+      "humidity": "69%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -328,11 +328,11 @@
     }
   },
   "Amravati": {
-    "last_updated": "7/19/2026, 7:27:56 AM",
+    "last_updated": "7/19/2026, 9:55:54 AM",
     "weather": {
-      "temp": "27°C",
+      "temp": "29°C",
       "desc": "overcast clouds",
-      "humidity": "73%",
+      "humidity": "63%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {

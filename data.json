@@ -1,10 +1,10 @@
 {
   "Latur": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
+    "last_updated": "7/20/2026, 5:21:51 PM",
     "weather": {
-      "temp": "25°C",
+      "temp": "26°C",
       "desc": "overcast clouds",
-      "humidity": "77%",
+      "humidity": "74%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -41,11 +41,11 @@
     }
   },
   "Pune": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
+    "last_updated": "7/20/2026, 5:21:51 PM",
     "weather": {
-      "temp": "26°C",
+      "temp": "25°C",
       "desc": "overcast clouds",
-      "humidity": "77%",
+      "humidity": "69%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -82,11 +82,11 @@
     }
   },
   "Nashik": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
+    "last_updated": "7/20/2026, 5:21:51 PM",
     "weather": {
-      "temp": "26°C",
+      "temp": "25°C",
       "desc": "overcast clouds",
-      "humidity": "78%",
+      "humidity": "82%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -123,7 +123,48 @@
     }
   },
   "Nagpur": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
+    "last_updated": "7/20/2026, 5:21:51 PM",
+    "weather": {
+      "temp": "29°C",
+      "desc": "moderate rain",
+      "humidity": "73%",
+      "rain_prob": "High Probability"
+    },
+    "crops": {
+      "Soybean": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Cotton": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Sugarcane": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Tur": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Onion": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      },
+      "Grapes": {
+        "price": "4500",
+        "date": "Check Local Mandi",
+        "status": "offline"
+      }
+    }
+  },
+  "Jalgaon": {
+    "last_updated": "7/20/2026, 5:21:51 PM",
     "weather": {
       "temp": "31°C",
       "desc": "overcast clouds",
@@ -163,53 +204,12 @@
       }
     }
   },
-  "Jalgaon": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
-    "weather": {
-      "temp": "34°C",
-      "desc": "overcast clouds",
-      "humidity": "45%",
-      "rain_prob": "Low/Moderate"
-    },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
-  },
   "Satara": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
+    "last_updated": "7/20/2026, 5:21:51 PM",
     "weather": {
-      "temp": "23°C",
+      "temp": "22°C",
       "desc": "overcast clouds",
-      "humidity": "86%",
+      "humidity": "90%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -246,11 +246,11 @@
     }
   },
   "Solapur": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
+    "last_updated": "7/20/2026, 5:21:51 PM",
     "weather": {
-      "temp": "29°C",
+      "temp": "28°C",
       "desc": "overcast clouds",
-      "humidity": "56%",
+      "humidity": "63%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -287,11 +287,11 @@
     }
   },
   "Akola": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
+    "last_updated": "7/20/2026, 5:21:51 PM",
     "weather": {
-      "temp": "35°C",
+      "temp": "32°C",
       "desc": "overcast clouds",
-      "humidity": "42%",
+      "humidity": "50%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {
@@ -328,11 +328,11 @@
     }
   },
   "Amravati": {
-    "last_updated": "7/20/2026, 1:41:10 PM",
+    "last_updated": "7/20/2026, 5:21:51 PM",
     "weather": {
-      "temp": "34°C",
+      "temp": "32°C",
       "desc": "overcast clouds",
-      "humidity": "43%",
+      "humidity": "52%",
       "rain_prob": "Low/Moderate"
     },
     "crops": {

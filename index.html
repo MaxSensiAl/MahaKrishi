@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
+    <title>MahaKrishi · महाकृषी</title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+    </script>
+    <style>
+        body {
+            background: #f4efe8;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .bg-gov-green {
+            background: #1e4a3a;
+        }
+        .bg-gov-green-light {
+            background: #2a6b55;
+        }
+        .text-gov-gold {
+            color: #d4a02b;
+        }
+        .border-gov-gold {
+            border-color: #d4a02b;
+        }
+        .bg-khadi {
+            background: #f4efe8;
+        }
+        .card-shadow {
+            box-shadow: 0 8px 24px rgba(0, 20, 10, 0.10);
+        }
+        .lang-btn {
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+        .lang-btn.active {
+            border-color: #d4a02b;
+            background: #1e4a3a;
+            color: white;
+        }
+        .glow-loading {
+            animation: pulse-glow 1.2s infinite;
+        }
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 160, 43, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(212, 160, 43, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 160, 43, 0);
+            }
+        }
+        .camera-zone {
+            border: 3px dashed #d4a02b;
+            background: #faf6ef;
+            transition: 0.25s;
+        }
+        .camera-zone:hover {
+            background: #f0e9de;
+            border-color: #1e4a3a;
+        }
+        .floating-home {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            background: #1e4a3a;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 60px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 2px solid #d4a02b;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .floating-home:hover {
+            transform: scale(1.05);
+            background: #2a6b55;
+        }
+        .floating-home.visible {
+            display: flex;
+        }
+        .buyer-card {
+            transition: 0.2s;
+            border-left: 4px solid #d4a02b;
+        }
+        .buyer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        .crop-badge {
+            background: #e8f0e6;
+            color: #1e4a3a;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.1rem 0.15rem;
+        }
+        .price-badge {
+            background: #d4a02b20;
+            color: #7a5d1a;
+            padding: 0.05rem 0.5rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 500;
+        }
+        .hidden-form {
+            display: none;
+        }
+        .form-visible {
+            display: block;
+        }
+        .pin-input {
+            letter-spacing: 4px;
+            font-size: 1.2rem;
+        }
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            .floating-home {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+        [data-i18n] {
+            transition: 0.15s;
+        }
+        .entry-date {
+            font-size: 0.7rem;
+            color: #888;
+            margin-top: 2px;
+        }
+        .soil-field {
+            display: none !important;
+        }
+        .village-select-wrapper {
+            position: relative;
+        }
+        .village-select-wrapper input[type="text"] {
+            width: 100%;
+        }
+        .village-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 0 0 12px 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 50;
+            display: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .village-dropdown.active {
+            display: block;
+        }
+        .village-dropdown .village-option {
+            padding: 10px 14px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1e4a3a;
+            transition: 0.15s;
+        }
+        .village-dropdown .village-option:hover {
+            background: #f4efe8;
+        }
+        .village-dropdown .village-option.other-village {
+            color: #d4a02b;
+            font-weight: 700;
+            border-top: 2px solid #d4a02b;
+            background: #faf6ef;
+        }
+        .village-dropdown .village-option.other-village:hover {
+            background: #f0e9de;
+        }
+        .village-search-icon {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            pointer-events: none;
+        }
+        .select-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%236b7280' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+        /* Improved button styles */
+        .btn-register {
+            background-color: #0d9488;
+            color: white;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 12px;
+            transition: 0.2s;
+            border: none;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.4);
+        }
+        .btn-register:hover {
+            background-color: #0f766e;
+            transform: scale(1.02);
+        }
+        .btn-update {
+            background-color: #f59e0b;
+            color: white;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 12px;
+            transition: 0.2s;
+            border: none;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+        .btn-update:hover {
+            background-color: #d97706;
+            transform: scale(1.02);
+        }
+        .btn-cancel {
+            background-color: #9ca3af;
+            color: white;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 12px;
+            transition: 0.2s;
+            border: none;
+        }
+        .btn-cancel:hover {
+            background-color: #6b7280;
+        }
+        .btn-confirm {
+            background-color: #f59e0b;
+            color: white;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 12px;
+            transition: 0.2s;
+            border: none;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+        .btn-confirm:hover {
+            background-color: #d97706;
+            transform: scale(1.02);
+        }
+        .btn-hidden {
+            display: none !important;
+        }
+        /* Dark toggle button for buyer registration */
+        .btn-toggle-dark {
+            background-color: #1f2937;
+            color: white;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 12px;
+            transition: 0.2s;
+            border: none;
+            box-shadow: 0 4px 12px rgba(31, 41, 55, 0.4);
+        }
+        .btn-toggle-dark:hover {
+            background-color: #111827;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app" class="max-w-7xl mx-auto px-3 md:px-6 py-4 md:py-6 font-sans">
+
+        <!-- ===== HEADER ===== -->
+        <header class="bg-gov-green text-white rounded-2xl card-shadow p-4 md:p-6 flex flex-wrap items-center justify-between border-b-4 border-gov-gold">
+            <div class="flex items-center space-x-3 md:space-x-4">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center border-2 border-gov-gold">
+                    <i class="fas fa-seedling text-2xl md:text-3xl text-gov-gold"></i>
+                </div>
+                <div>
+                    <h1 class="text-base md:text-xl font-bold tracking-wide" data-i18n="appTitle">महाकृषी · MahaKrishi</h1>
+                    <p class="text-xs md:text-sm opacity-90 leading-tight" data-i18n="deptLine1">महाराष्ट्र शासन · कृषी विभाग</p>
+                    <p class="text-[10px] md:text-xs opacity-70" data-i18n="deptLine2">Government of Maharashtra · Agriculture Dept.</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-1 mt-2 sm:mt-0 bg-white/10 p-1 rounded-full">
+                <button data-lang="mr" class="lang-btn active text-sm md:text-base px-3 py-1 rounded-full font-medium">मराठी</button>
+                <button data-lang="hi" class="lang-btn text-sm md:text-base px-3 py-1 rounded-full font-medium">हिंदी</button>
+                <button data-lang="en" class="lang-btn text-sm md:text-base px-3 py-1 rounded-full font-medium">English</button>
+            </div>
+        </header>
+
+        <!-- ===== ONBOARDING PANEL ===== -->
+        <section id="onboardingPanel" class="mt-5 bg-white/80 p-4 md:p-6 rounded-2xl card-shadow border border-white/50">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider" data-i18n="districtLabel">जिल्हा · District</label>
+                    <select id="districtSelect" class="w-full mt-1 p-2.5 border border-gray-300 rounded-xl bg-khadi text-gray-800 focus:ring-2 focus:ring-gov-gold select-dropdown"></select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider" data-i18n="talukaLabel">तालुका · Taluka</label>
+                    <select id="talukaSelect" class="w-full mt-1 p-2.5 border border-gray-300 rounded-xl bg-khadi text-gray-800 focus:ring-2 focus:ring-gov-gold select-dropdown"></select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider" data-i18n="villageLabel">गाव · Village</label>
+                    <div class="village-select-wrapper relative">
+                        <input type="text" id="villageSearchInput" placeholder="गाव शोधा / Search Village..." class="w-full mt-1 p-2.5 border border-gray-300 rounded-xl bg-khadi text-gray-800 focus:ring-2 focus:ring-gov-gold pr-10" data-i18n-placeholder="villagePlaceholder" autocomplete="off" />
+                        <i class="fas fa-search village-search-icon"></i>
+                        <div id="villageDropdown" class="village-dropdown"></div>
+                        <input type="hidden" id="villageInput" value="" />
+                        <div id="otherVillageContainer" style="display:none;" class="mt-1">
+                            <input type="text" id="otherVillageInput" placeholder="गावाचे नाव लिहा / Enter village name..." class="w-full p-2.5 border border-gray-300 rounded-xl bg-khadi text-gray-800 focus:ring-2 focus:ring-gov-gold" />
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider" data-i18n="cropLabel">पीक · Crop</label>
+                    <select id="cropSelect" class="w-full mt-1 p-2.5 border border-gray-300 rounded-xl bg-khadi text-gray-800 focus:ring-2 focus:ring-gov-gold select-dropdown"></select>
+                </div>
+                <div class="soil-field"></div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider" data-i18n="sowingLabel">पेरणी तारीख · Sowing</label>
+                    <input type="date" id="sowingDate" class="w-full mt-1 p-2.5 border border-gray-300 rounded-xl bg-khadi text-gray-800" />
+                    <span id="cropStageDisplay" class="inline-block mt-1 px-4 py-1.5 bg-gov-green text-white rounded-xl text-sm font-medium" data-i18n="stageVegetative">वनस्पतिवत्</span>
+                </div>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-3">
+                <button id="getAdvisoryBtn" class="px-6 py-3 bg-gov-green text-white font-bold rounded-xl shadow-lg hover:bg-gov-green-light transition flex items-center gap-2 text-sm md:text-base">
+                    <i class="fas fa-magic"></i> <span data-i18n="getAdvisory">स्मार्ट सल्ला मिळवा</span>
+                </button>
+                <button id="toggleBuyerFormBtn" class="btn-toggle-dark">
+                    <i class="fas fa-plus-circle"></i> <span data-i18n="registerBuyerBtn">खरेदीदार नोंदणी</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== ADVISORY DASHBOARD ===== -->
+        <div id="advisoryDashboard" class="mt-5 hidden grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- Weather Card -->
+            <div class="bg-white rounded-2xl card-shadow p-4 md:p-5 border-l-8 border-gov-gold">
+                <h2 class="text-lg font-bold text-gov-green flex items-center gap-2"><i class="fas fa-cloud-sun text-gov-gold"></i> <span data-i18n="weather">हवामान</span></h2>
+                <div id="weatherContent" class="mt-3 grid grid-cols-2 gap-3">
+                    <div><span class="text-gray-500 text-xs" data-i18n="temp">तापमान</span><p class="text-2xl font-bold" id="tempDisplay">--°C</p></div>
+                    <div><span class="text-gray-500 text-xs" data-i18n="humidity">आर्द्रता</span><p class="text-2xl font-bold" id="humidityDisplay">--%</p></div>
+                    <div><span class="text-gray-500 text-xs" data-i18n="wind">वारा</span><p class="text-xl font-bold" id="windDisplay">-- km/h</p></div>
+                    <div><span class="text-gray-500 text-xs" data-i18n="rain">पाऊस</span><p class="text-xl font-bold" id="rainDisplay">--%</p></div>
+                </div>
+                <div id="weatherWarning" class="mt-3 bg-red-50 border-l-4 border-red-500 p-3 rounded-xl text-sm font-medium text-red-700 flex items-center gap-2">
+                    <i class="fas fa-exclamation-triangle"></i> <span data-i18n="weatherWarningDefault">मुसळधार पावसाचा अंदाज - आज सिंचन करू नका!</span>
+                </div>
+            </div>
+            <!-- Irrigation & Fertilizer -->
+            <div class="bg-white rounded-2xl card-shadow p-4 md:p-5 border-l-8 border-gov-gold">
+                <h2 class="text-lg font-bold text-gov-green flex items-center gap-2"><i class="fas fa-tint text-gov-gold"></i> <span data-i18n="irrigation">सिंचन व खते</span></h2>
+                <div class="mt-3 space-y-2 text-sm">
+                    <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-600" data-i18n="irrigSchedule">सिंचन वेळापत्रक</span><span class="font-semibold" id="irrigSchedule">दर ३ दिवस</span></div>
+                    <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-600" data-i18n="npk">NPK शिफारस</span><span class="font-semibold text-gov-green" id="npkRecommend">12:32:16</span></div>
+                    <div class="flex justify-between"><span class="text-gray-600" data-i18n="stageAdvice">अवस्था सल्ला</span><span class="font-semibold" id="stageAdvice">वनस्पतिवत् - नायट्रोजन वाढवा</span></div>
+                </div>
+            </div>
+            <!-- AI Scanner -->
+            <div class="bg-white rounded-2xl card-shadow p-4 md:p-5 border-l-8 border-gov-gold">
+                <h2 class="text-lg font-bold text-gov-green flex items-center gap-2"><i class="fas fa-microscope text-gov-gold"></i> <span data-i18n="scanner">AI रोग तपासणी</span></h2>
+                <div id="cameraZone" class="camera-zone rounded-2xl p-4 mt-3 text-center cursor-pointer transition">
+                    <i class="fas fa-camera-retro text-3xl text-gov-gold"></i>
+                    <p class="text-sm text-gray-600 mt-1" data-i18n="uploadHint">फोटो अपलोड करा किंवा कॅमेरा उघडा</p>
+                    <div id="scanStatus" class="mt-2 text-xs text-gray-500" data-i18n="scanReady">तयार</div>
+                </div>
+                <div id="diseaseReport" class="mt-3 hidden p-3 bg-green-50 rounded-xl border border-green-200 text-sm">
+                    <p class="font-bold text-gov-green"><i class="fas fa-check-circle"></i> <span data-i18n="diagnosis">निदान</span></p>
+                    <div id="reportContent" data-i18n="diseaseDefault">डाउनी मिल्ड्यू (Downy Mildew) आढळला.</div>
+                    <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
+                        <span class="bg-white p-2 rounded shadow-sm"><span class="font-semibold" data-i18n="organic">जैविक:</span> <span id="organicSolution" data-i18n="organicDefault">नीम तेल ५ml/ली</span></span>
+                        <span class="bg-white p-2 rounded shadow-sm"><span class="font-semibold" data-i18n="chemical">रासायनिक:</span> <span id="chemicalSolution" data-i18n="chemicalDefault">मॅन्कोझेब ०.२%</span></span>
+                    </div>
+                </div>
+            </div>
+            <!-- APMC -->
+            <div class="bg-white rounded-2xl card-shadow p-4 md:p-5 border-l-8 border-gov-gold">
+                <h2 class="text-lg font-bold text-gov-green flex items-center gap-2"><i class="fas fa-chart-line text-gov-gold"></i> <span data-i18n="apmc">APMC बाजार दर</span></h2>
+                <div class="flex justify-between text-xs text-gray-500 mt-1"><span id="apmcDistrict" data-i18n="apmcDistrictLabel">जिल्हा: लातूर</span> <span id="apmcDate" data-i18n="apmcDateLabel">तारीख: --</span></div>
+                <div class="mt-2 h-32"><canvas id="priceChart"></canvas></div>
+                <div class="grid grid-cols-3 gap-2 mt-3 text-center text-xs">
+                    <div class="bg-khadi p-2 rounded"><span class="block text-gray-500" data-i18n="today">आज</span><span class="font-bold text-gov-green" id="todayPrice">₹--</span></div>
+                    <div class="bg-khadi p-2 rounded"><span class="block text-gray-500" data-i18n="avg">सरासरी</span><span class="font-bold" id="avgPrice">₹--</span></div>
+                    <div class="bg-khadi p-2 rounded"><span class="block text-gray-500" data-i18n="trend">ट्रेंड</span><span class="font-bold text-green-600" id="trendIndicator"><i class="fas fa-arrow-up"></i> --%</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== B2B BUYER MARKETPLACE ===== -->
+        <section class="mt-6 bg-white rounded-2xl card-shadow p-4 md:p-6">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <h2 class="text-xl font-bold text-gov-green flex items-center gap-2">
+                    <i class="fas fa-handshake text-gov-gold"></i>
+                    <span id="marketplaceHeader" data-i18n="marketplaceHeader">लातूर -> Ausa मधील खरेदीदार</span>
+                </h2>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-search text-gray-400"></i>
+                    <input type="text" id="buyerSearch" placeholder="गाव शोधा..." class="border border-gray-300 rounded-xl px-3 py-1.5 text-sm w-40 md:w-60 bg-khadi focus:ring-2 focus:ring-gov-gold" data-i18n-placeholder="searchPlaceholder" />
+                </div>
+            </div>
+            <div id="buyerListContainer" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                <p class="text-gray-500 col-span-2 text-center py-4" data-i18n="noBuyers">कृपया वरील फॉर्ममधून जिल्हा व तालुका निवडा</p>
+            </div>
+        </section>
+
+        <!-- ===== BUYER REGISTRATION FORM (Improved Buttons) ===== -->
+        <div id="buyerRegistrationForm" class="hidden-form mt-5 bg-white/95 rounded-2xl card-shadow p-4 md:p-6 border-t-4 border-gov-gold">
+            <h3 class="text-lg font-bold text-gov-green flex items-center gap-2"><i class="fas fa-user-plus text-gov-gold"></i> <span data-i18n="formTitle">खरेदीदार नोंदणी / दुरुस्ती</span></h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3">
+                <div><label class="block text-xs font-semibold text-gray-600" data-i18n="nameLabel">नाव · Name</label><input type="text" id="buyerName" class="w-full mt-1 p-2 border rounded-xl bg-khadi" /></div>
+                <div><label class="block text-xs font-semibold text-gray-600" data-i18n="phoneLabel">मोबाइल · Phone</label><input type="text" id="buyerPhone" class="w-full mt-1 p-2 border rounded-xl bg-khadi" /></div>
+                <div><label class="block text-xs font-semibold text-gray-600" data-i18n="villageLabelForm">गाव · Village</label><input type="text" id="buyerVillage" class="w-full mt-1 p-2 border rounded-xl bg-khadi" /></div>
+            </div>
+            <div class="mt-2">
+                <label class="block text-xs font-semibold text-gray-600" data-i18n="pinLabel">4-अंकी सुरक्षा PIN · Security PIN</label>
+                <input type="password" maxlength="4" id="buyerPin" class="pin-input w-32 mt-1 p-2 border rounded-xl bg-khadi" />
+            </div>
+            <div class="mt-3">
+                <label class="block text-xs font-semibold text-gray-600" data-i18n="cropsRatesLabel">पिके आणि दर (किमती) · Crops & Rates</label>
+                <div id="cropPricingGrid" class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-1 max-h-60 overflow-y-auto p-2 border rounded-xl bg-khadi/50"></div>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-3">
+                <button id="registerBuyerBtn" class="btn-register" data-i18n="registerBtn">नवीन नोंदणी करा</button>
+                <button id="updateBuyerBtn" class="btn-update" data-i18n="updateBtn">दर अपडेट करा</button>
+                <button id="confirmChangesBtn" class="btn-confirm btn-hidden" data-i18n="confirmBtn">बदल निश्चित करा</button>
+                <button id="cancelFormBtn" class="btn-cancel" data-i18n="cancelBtn">रद्द करा</button>
+            </div>
+            <div id="formStatus" class="mt-2 text-sm text-gray-500" data-i18n="formStatusDefault"></div>
+        </div>
+
+        <!-- ===== FLOATING HOME BUTTON ===== -->
+        <button id="floatingHomeBtn" class="floating-home">
+            <i class="fas fa-home"></i> <span data-i18n="homeBtn">मागे जा / Home</span>
+        </button>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="mt-8 text-center text-xs text-gray-500 border-t border-gray-200 pt-4">
+            <p data-i18n="footer">© 2026 महाकृषी · MahaKrishi | महाराष्ट्र शासनाचा अधिकृत डिजिटल प्लॅटफॉर्म</p>
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            // ============================================================
+            // 1. DATA: 36 Districts + Talukas + Villages (Hybrid)
+            // ============================================================
+            const districtTalukaMap = {
+                "Latur": ["Ausa", "Nilanga", "Udgir", "Latur", "Renapur", "Ahmedpur", "Jalkot", "Deoni", "Shirur-Anantpal"],
+                "Beed": ["Ambajogai", "Georai", "Majalgaon", "Parli", "Kaij", "Dharur", "Wadwani", "Patoda", "Ashti", "Shirur Kasar",
+                    "Beed"
+                ],
+                "Pune": ["Pune City", "Haveli", "Mulshi", "Maval", "Bhor", "Shirur", "Daund", "Baramati", "Indapur", "Khed", "Junnar", "Ambegaon"],
+                "Nashik": ["Nashik", "Niphad", "Sinnar", "Dindori", "Yeola", "Chandwad", "Malegaon", "Nandgaon", "Surgana", "Kalwan", "Deola", "Baglan", "Trimbakeshwar"],
+                "Nagpur": ["Nagpur", "Ramtek", "Parseoni", "Mauda", "Kamthi", "Hingna", "Katol", "Narkhed", "Kalmeshwar", "Savner", "Umred", "Bhiwapur", "Kuhi"],
+                "Jalgaon": ["Jalgaon", "Pachora", "Erandol", "Dharangaon", "Bhusawal", "Yawal", "Raver", "Muktainagar", "Bodwad", "Amalner", "Parola", "Chalisgaon", "Bhadgaon"],
+                "Satara": ["Satara", "Karad", "Wai", "Mahableshwar", "Patan", "Koregaon", "Jawali", "Khandala", "Phaltan", "Man"],
+                "Solapur": ["Solapur", "Barsi", "Akkalkot", "Mangalwedha", "Pandharpur", "Sangola", "Malshiras", "Mohol", "Karmala", "Madha", "Tuljapur"],
+                "Akola": ["Akola", "Murtijapur", "Barshitakli", "Telhara", "Balapur", "Patur", "Akot", "Chandur"],
+                "Amravati": ["Amravati", "Chandur", "Dhamangaon", "Morshi", "Nandgaon", "Bhatkuli", "Warud", "Anjangaon", "Dharni", "Achalpur"],
+                "Kolhapur": ["Kolhapur", "Shirol", "Hatkanangale", "Ichalkaranji", "Karvir", "Kagal", "Gadhinglaj", "Bavda", "Ajara", "Chandgad", "Panhala", "Radhanagari", "Bhudargad"],
+                "Aurangabad": ["Aurangabad", "Paithan", "Gangapur", "Vaijapur", "Kannad", "Sillod", "Phulambri", "Khuldabad", "Soegaon"],
+                "Sangli": ["Sangli", "Miraj", "Tasgaon", "Kavathe-Mahankal", "Atpadi", "Jath", "Khanapur", "Walwa", "Palus", "Kadegaon", "Shirala"],
+                "Chandrapur": ["Chandrapur", "Warora", "Chimur", "Bhadravati", "Mul", "Brahmapuri", "Nagbhid", "Korpana", "Pombhurna", "Gondpipri", "Saoli", "Rajura"],
+                "Mumbai": ["Mumbai City", "Mumbai Suburban"],
+                "Thane": ["Thane", "Murbad", "Bhiwandi", "Shahapur", "Kalyan", "Ulhasnagar", "Ambernath", "Badlapur", "Dombivli", "Mira-Bhayandar", "Vasai-Virar", "Palghar"],
+                "Raigad": ["Alibag", "Panvel", "Karjat", "Khalapur", "Pen", "Roha", "Mangaon", "Mhasala", "Mahad", "Poladpur", "Shrivardhan", "Sudhagad", "Tala", "Murud"],
+                "Ratnagiri": ["Ratnagiri", "Guhagar", "Chiplun", "Lanja", "Rajapur", "Khed", "Dapoli", "Sangameshwar", "Mandangad"],
+                "Sindhudurg": ["Sawantwadi", "Vengurla", "Kudal", "Kankavli", "Malvan", "Devgad", "Dodamarg", "Vaibhavwadi"],
+                "Nandurbar": ["Nandurbar", "Shahada", "Talode", "Navapur", "Akkalkuwa"],
+                "Dhule": ["Dhule", "Shirpur", "Sindkheda", "Sakri"],
+                "Jalna": ["Jalna", "Bhokardan", "Jafferabad", "Badnapur", "Ghansawangi", "Ambad", "Partur"],
+                "Parbhani": ["Parbhani", "Jintur", "Pathri", "Manwat", "Palam", "Gangakhed", "Sailu", "Sonpeth"],
+                "Hingoli": ["Hingoli", "Aundha Nagnath", "Kalamnuri", "Sengaon", "Basmath"],
+                "Nanded": ["Nanded", "Deglur", "Mudkhed", "Biloli", "Dharmabad", "Hadgaon", "Himayatnagar", "Kinwat", "Loha", "Mahur", "Mokhed", "Naigaon", "Umri"],
+                "Osmanabad": ["Osmanabad", "Tuljapur", "Bhoom", "Kalamb", "Washi", "Paranda"],
+                "Buldhana": ["Buldhana", "Khamgaon", "Shegaon", "Malkapur", "Nandura", "Jalgaon Jamod", "Sindkhed Raja", "Mehkar", "Chikhli", "Lonar", "Deulgaon Raja"],
+                "Washim": ["Washim", "Risod", "Mangrulpir", "Malegaon", "Karanja"],
+                "Yavatmal": ["Yavatmal", "Wani", "Digras", "Pusad", "Umarkhed", "Mahagaon", "Ralegaon", "Zari-Jamani", "Ghatanji", "Arni", "Kalam", "Darwha", "Maregaon", "Babhulgaon"],
+                "Gadchiroli": ["Gadchiroli", "Aheri", "Sironcha", "Bhamragad", "Kurkheda", "Korchi", "Armori", "Chamorshi", "Mulchera", "Etapalli"],
+                "Gondia": ["Gondia", "Tirora", "Arjuni Morgaon", "Deori", "Goregaon", "Amgaon", "Salekasa", "Sadak-Arjuni"],
+                "Bhandara": ["Bhandara", "Tumsar", "Mohadi", "Sakoli", "Lakhani", "Pauni", "Lakhandur"],
+                "Wardha": ["Wardha", "Arvi", "Deoli", "Hinganghat", "Samudrapur", "Karanja", "Ashti", "Seloo"]
+            };
+
+            // Reference villages for prominent talukas (limited to save memory)
+            const referenceVillages = {
+                "Ausa": ["औसा", "हरंगुळ", "माळशिरस", "किल्लारी", "सस्ती"],
+                "Nilanga": ["निलंगा", "शिरूर", "गंजूर", "धानेगाव", "हिप्परगा"],
+                "Udgir": ["उदगीर", "हडोलती", "संगवी", "वडवाळ", "नाळेगाव"],
+                "Latur": ["लातूर", "खरोला", "वडवाळ", "नाळेगाव", "संगवी"],
+                "Ambajogai": ["अंबाजोगाई", "मंगरूळ", "खासगाव", "भोकरदन", "पांगरी"],
+                "Georai": ["गेवराई", "मंगरूळ", "खासगाव", "भोकरदन", "पांगरी"],
+                "Majalgaon": ["माजलगाव", "मंगरूळ", "खासगाव", "भोकरदन", "पांगरी"],
+                "Parli": ["परळी", "मंगरूळ", "खासगाव", "भोकरदन", "पांगरी"],
+                "Kaij": ["कैज", "मंगरूळ", "खासगाव", "भोकरदन", "पांगरी"],
+                "Beed": ["बीड", "मंगरूळ", "खासगाव", "भोकरदन", "पांगरी"],
+                "Pune City": ["पुणे", "हडपसर", "कोथरूड", "खराडी", "बाणेर"],
+                "Nashik": ["नाशिक", "गंगापूर", "देवळाली", "ओझर", "सिन्नर"],
+                "Nagpur": ["नागपूर", "रामटेक", "पारशेवनी", "मौदा", "कामठी"],
+                "Jalgaon": ["जळगाव", "पाचोरा", "एरंडोल", "धारंगाव", "भुसावळ"],
+                "Satara": ["सातारा", "कराड", "वाई", "महाबळेश्वर", "पाटण"],
+                "Solapur": ["सोलापूर", "बारसी", "अक्कलकोट", "मंगळवेढा", "पंढरपूर"],
+                "Kolhapur": ["कोल्हापूर", "शिरोळ", "हातकणंगले", "इचलकरंजी", "करवीर"],
+                "Aurangabad": ["औरंगाबाद", "पैठण", "गंगापूर", "वैजापूर", "कन्नड"],
+                "Sangli": ["सांगली", "मिरज", "तासगाव", "कवठे-महांकाळ", "आटपाडी"],
+                "Chandrapur": ["चंद्रपूर", "वरोरा", "चिमूर", "भद्रावती", "मूल"],
+                "Akola": ["अकोला", "मुर्तिजापूर", "बारशीटाकळी", "तेल्हारा", "बाळापूर"],
+                "Amravati": ["अमरावती", "चांदुर", "धामणगाव", "मोर्शी", "नांदगाव"],
+                "Thane": ["ठाणे", "मुरबाड", "भिवंडी", "शहापूर", "कल्याण"],
+                "Nanded": ["नांदेड", "देगलूर", "मुदखेड", "बिलोली", "धर्माबाद"],
+                "Yavatmal": ["यवतमाळ", "वणी", "दिग्रस", "पुसद", "उमरखेड"],
+                "Wardha": ["वर्धा", "अर्वी", "देवळी", "हिंगणघाट", "समुद्रपूर"]
+            };
+
+            function getVillagesForTaluka(taluka) {
+                if (referenceVillages[taluka]) {
+                    return referenceVillages[taluka];
+                }
+                const suffixes = ["Budruk", "Khurd", "Wadi", "Gaon", "Nagar"];
+                const base = taluka;
+                return suffixes.map(s => `${base} ${s}`);
+            }
+
+            const allCrops = [
+                "Soybean", "Ghevda", "Moong", "Urad", "Cotton", "Sugarcane", "Tur", "Onion",
+                "Grapes", "Rice", "Wheat", "Jowar", "Bajra", "Gram", "Maize", "Pomegranate",
+                "Banana", "Turmeric", "Groundnut", "Orange", "Mango"
+            ];
+
+            // ============================================================
+            // 2. TRANSLATIONS
+            // ============================================================
+            const cropTranslations = {
+                mr: {
+                    "Soybean": "सोयाबीन",
+                    "Ghevda": "घेवडा",
+                    "Moong": "मूग",
+                    "Urad": "उडीद",
+                    "Cotton": "कापूस",
+                    "Sugarcane": "उस",
+                    "Tur": "तूर",
+                    "Onion": "कांदा",
+                    "Grapes": "द्राक्ष",
+                    "Rice": "तांदूळ",
+                    "Wheat": "गहू",
+                    "Jowar": "ज्वारी",
+                    "Bajra": "बाजरी",
+                    "Gram": "हरभरा",
+                    "Maize": "मका",
+                    "Pomegranate": "डाळिंब",
+                    "Banana": "केळी",
+                    "Turmeric": "हळद",
+                    "Groundnut": "भुईमूग",
+                    "Orange": "संत्रा",
+                    "Mango": "आंबा"
+                },
+                hi: {
+                    "Soybean": "सोयाबीन",
+                    "Ghevda": "घेवड़ा",
+                    "Moong": "मूंग",
+                    "Urad": "उड़द",
+                    "Cotton": "कपास",
+                    "Sugarcane": "गन्ना",
+                    "Tur": "तूर",
+                    "Onion": "प्याज",
+                    "Grapes": "अंगूर",
+                    "Rice": "चावल",
+                    "Wheat": "गेहूं",
+                    "Jowar": "ज्वार",
+                    "Bajra": "बाजरा",
+                    "Gram": "चना",
+                    "Maize": "मक्का",
+                    "Pomegranate": "अनार",
+                    "Banana": "केला",
+                    "Turmeric": "हल्दी",
+                    "Groundnut": "मूंगफली",
+                    "Orange": "संतरा",
+                    "Mango": "आम"
+                },
+                en: {
+                    "Soybean": "Soybean",
+                    "Ghevda": "Ghevda",
+                    "Moong": "Moong",
+                    "Urad": "Urad",
+                    "Cotton": "Cotton",
+                    "Sugarcane": "Sugarcane",
+                    "Tur": "Tur",
+                    "Onion": "Onion",
+                    "Grapes": "Grapes",
+                    "Rice": "Rice",
+                    "Wheat": "Wheat",
+                    "Jowar": "Jowar",
+                    "Bajra": "Bajra",
+                    "Gram": "Gram",
+                    "Maize": "Maize",
+                    "Pomegranate": "Pomegranate",
+                    "Banana": "Banana",
+                    "Turmeric": "Turmeric",
+                    "Groundnut": "Groundnut",
+                    "Orange": "Orange",
+                    "Mango": "Mango"
+                }
+            };
+
+            const districtTranslations = {
+                mr: {
+                    "Latur": "लातूर",
+                    "Beed": "बीड",
+                    "Pune": "पुणे",
+                    "Nashik": "नाशिक",
+                    "Nagpur": "नागपूर",
+                    "Jalgaon": "जळगाव",
+                    "Satara": "सातारा",
+                    "Solapur": "सोलापूर",
+                    "Akola": "अकोला",
+                    "Amravati": "अमरावती",
+                    "Kolhapur": "कोल्हापूर",
+                    "Aurangabad": "औरंगाबाद",
+                    "Sangli": "सांगली",
+                    "Chandrapur": "चंद्रपूर",
+                    "Mumbai": "मुंबई",
+                    "Thane": "ठाणे",
+                    "Raigad": "रायगड",
+                    "Ratnagiri": "रत्नागिरी",
+                    "Sindhudurg": "सिंधुदुर्ग",
+                    "Nandurbar": "नंदुरबार",
+                    "Dhule": "धुळे",
+                    "Jalna": "जालना",
+                    "Parbhani": "परभणी",
+                    "Hingoli": "हिंगोली",
+                    "Nanded": "नांदेड",
+                    "Osmanabad": "उस्मानाबाद",
+                    "Buldhana": "बुलढाणा",
+                    "Washim": "वाशिम",
+                    "Yavatmal": "यवतमाळ",
+                    "Gadchiroli": "गडचिरोली",
+                    "Gondia": "गोंदिया",
+                    "Bhandara": "भंडारा",
+                    "Wardha": "वर्धा",
+                    "Mumbai City": "मुंबई शहर",
+                    "Mumbai Suburban": "मुंबई उपनगर"
+                },
+                hi: {
+                    "Latur": "लातूर",
+                    "Beed": "बीड",
+                    "Pune": "पुणे",
+                    "Nashik": "नाशिक",
+                    "Nagpur": "नागपूर",
+                    "Jalgaon": "जळगाव",
+                    "Satara": "सातारा",
+                    "Solapur": "सोलापूर",
+                    "Akola": "अकोला",
+                    "Amravati": "अमरावती",
+                    "Kolhapur": "कोल्हापूर",
+                    "Aurangabad": "औरंगाबाद",
+                    "Sangli": "सांगली",
+                    "Chandrapur": "चंद्रपूर",
+                    "Mumbai": "मुंबई",
+                    "Thane": "ठाणे",
+                    "Raigad": "रायगड",
+                    "Ratnagiri": "रत्नागिरी",
+                    "Sindhudurg": "सिंधुदुर्ग",
+                    "Nandurbar": "नंदुरबार",
+                    "Dhule": "धुळे",
+                    "Jalna": "जालना",
+                    "Parbhani": "परभणी",
+                    "Hingoli": "हिंगोली",
+                    "Nanded": "नांदेड",
+                    "Osmanabad": "उस्मानाबाद",
+                    "Buldhana": "बुलढाणा",
+                    "Washim": "वाशिम",
+                    "Yavatmal": "यवतमाळ",
+                    "Gadchiroli": "गडचिरोली",
+                    "Gondia": "गोंदिया",
+                    "Bhandara": "भंडारा",
+                    "Wardha": "वर्धा",
+                    "Mumbai City": "मुंबई शहर",
+                    "Mumbai Suburban": "मुंबई उपनगर"
+                },
+                en: {
+                    "Latur": "Latur",
+                    "Beed": "Beed",
+                    "Pune": "Pune",
+                    "Nashik": "Nashik",
+                    "Nagpur": "Nagpur",
+                    "Jalgaon": "Jalgaon",
+                    "Satara": "Satara",
+                    "Solapur": "Solapur",
+                    "Akola": "Akola",
+                    "Amravati": "Amravati",
+                    "Kolhapur": "Kolhapur",
+                    "Aurangabad": "Aurangabad",
+                    "Sangli": "Sangli",
+                    "Chandrapur": "Chandrapur",
+                    "Mumbai": "Mumbai",
+                    "Thane": "Thane",
+                    "Raigad": "Raigad",
+                    "Ratnagiri": "Ratnagiri",
+                    "Sindhudurg": "Sindhudurg",
+                    "Nandurbar": "Nandurbar",
+                    "Dhule": "Dhule",
+                    "Jalna": "Jalna",
+                    "Parbhani": "Parbhani",
+                    "Hingoli": "Hingoli",
+                    "Nanded": "Nanded",
+                    "Osmanabad": "Osmanabad",
+                    "Buldhana": "Buldhana",
+                    "Washim": "Washim",
+                    "Yavatmal": "Yavatmal",
+                    "Gadchiroli": "Gadchiroli",
+                    "Gondia": "Gondia",
+                    "Bhandara": "Bhandara",
+                    "Wardha": "Wardha",
+                    "Mumbai City": "Mumbai City",
+                    "Mumbai Suburban": "Mumbai Suburban"
+                }
+            };
+
+            const i18n = {
+                mr: {
+                    appTitle: 'महाकृषी · MahaKrishi',
+                    deptLine1: 'महाराष्ट्र शासन · कृषी विभाग',
+                    deptLine2: 'Government of Maharashtra · Agriculture Dept.',
+                    districtLabel: 'जिल्हा',
+                    talukaLabel: 'तालुका',
+                    villageLabel: 'गाव',
+                    villagePlaceholder: 'गाव शोधा...',
+                    cropLabel: 'पीक',
+                    sowingLabel: 'पेरणी तारीख',
+                    stageVegetative: 'वनस्पतिवत्',
+                    getAdvisory: 'स्मार्ट सल्ला मिळवा',
+                    registerBuyerBtn: 'खरेदीदार नोंदणी',
+                    weather: 'हवामान',
+                    temp: 'तापमान',
+                    humidity: 'आर्द्रता',
+                    wind: 'वारा',
+                    rain: 'पाऊस',
+                    weatherWarningDefault: 'मुसळधार पावसाचा अंदाज - आज सिंचन करू नका!',
+                    irrigation: 'सिंचन व खते',
+                    irrigSchedule: 'सिंचन वेळापत्रक',
+                    npk: 'NPK शिफारस',
+                    stageAdvice: 'अवस्था सल्ला',
+                    scanner: 'AI रोग तपासणी',
+                    uploadHint: 'फोटो अपलोड करा किंवा कॅमेरा उघडा',
+                    scanReady: 'तयार',
+                    diagnosis: 'निदान',
+                    diseaseDefault: 'डाउनी मिल्ड्यू (Downy Mildew) आढळला.',
+                    organic: 'जैविक',
+                    organicDefault: 'नीम तेल ५ml/ली',
+                    chemical: 'रासायनिक',
+                    chemicalDefault: 'मॅन्कोझेब ०.२%',
+                    apmc: 'APMC बाजार दर',
+                    apmcDistrictLabel: 'जिल्हा: लातूर',
+                    apmcDateLabel: 'तारीख: --',
+                    today: 'आज',
+                    avg: 'सरासरी',
+                    trend: 'ट्रेंड',
+                    marketplaceHeader: 'लातूर -> Ausa मधील खरेदीदार',
+                    searchPlaceholder: 'गाव शोधा...',
+                    noBuyers: 'कृपया वरील फॉर्ममधून जिल्हा व तालुका निवडा',
+                    formTitle: 'खरेदीदार नोंदणी / दुरुस्ती',
+                    nameLabel: 'नाव',
+                    phoneLabel: 'मोबाइल',
+                    villageLabelForm: 'गाव',
+                    pinLabel: '4-अंकी सुरक्षा PIN',
+                    cropsRatesLabel: 'पिके आणि दर (किमती)',
+                    registerBtn: 'नवीन नोंदणी करा',
+                    updateBtn: 'दर अपडेट करा',
+                    confirmBtn: 'बदल निश्चित करा',
+                    cancelBtn: 'रद्द करा',
+                    formStatusDefault: '',
+                    homeBtn: 'मागे जा / Home',
+                    footer: '© 2026 महाकृषी · MahaKrishi | महाराष्ट्र शासनाचा अधिकृत डिजिटल प्लॅटफॉर्म',
+                    pinError: 'चुकीचा पिन!',
+                    editMode: 'दुरुस्ती मोड - बदल निश्चित करा',
+                    deleteConfirm: 'हा खरेदीदार हटवायचा?',
+                    deleted: 'खरेदीदार हटवला.',
+                    updateSuccess: 'दुरुस्ती यशस्वी!',
+                    registerSuccess: 'नवीन खरेदीदार नोंदणी यशस्वी!',
+                    existsError: 'हा मोबाइल क्रमांक आधीच नोंदणीकृत आहे. "दर अपडेट करा" वापरा.',
+                    notFound: 'हा मोबाइल आढळला नाही.',
+                    formError: 'सर्व फील्ड भरा आणि 4-अंकी PIN टाका.',
+                    cropError: 'किमान एक पीक आणि दर निवडा.',
+                    updateError: 'मोबाइल आणि 4-अंकी PIN टाका.',
+                    scanning: 'स्कॅनिंग...',
+                    scanComplete: 'स्कॅन पूर्ण',
+                    disease1: 'डाउनी मिल्ड्यू (Downy Mildew)',
+                    disease2: 'पावडर मिल्ड्यू',
+                    disease3: 'तुरई रोग',
+                    disease4: 'अफिड्स',
+                    disease5: 'टिक्का लीफ स्पॉट',
+                    organic1: 'नीम तेल ५ml/ली',
+                    organic2: 'सोडियम बायकार्बोनेट ०.५%',
+                    organic3: 'लसूण अर्क',
+                    organic4: 'बॅसिलस थुरिंजिनसिस',
+                    chem1: 'मॅन्कोझेब ०.२%',
+                    chem2: 'कॉपर ऑक्सिक्लोराईड ०.३%',
+                    chem3: 'थायोफेनेट मेथिल',
+                    chem4: 'क्लोरोथॅलोनिल',
+                    day1: 'दिवस १',
+                    day2: '२',
+                    day3: '३',
+                    day4: '४',
+                    day5: '५',
+                    loading: 'लोड होत आहे...',
+                    contactBtn: 'संपर्क',
+                    entryDate: 'नोंदणी तारीख',
+                    otherVillage: 'माझे गाव स्वतः लिहा / Type My Village Name'
+                },
+                hi: {
+                    appTitle: 'महाकृषी · MahaKrishi',
+                    deptLine1: 'महाराष्ट्र शासन · कृषि विभाग',
+                    deptLine2: 'Government of Maharashtra · Agriculture Dept.',
+                    districtLabel: 'जिला',
+                    talukaLabel: 'तालुका',
+                    villageLabel: 'गाँव',
+                    villagePlaceholder: 'गाँव खोजें...',
+                    cropLabel: 'फसल',
+                    sowingLabel: 'बुवाई तारीख',
+                    stageVegetative: 'वानस्पतिक',
+                    getAdvisory: 'स्मार्ट सलाह लें',
+                    registerBuyerBtn: 'खरीदार पंजीकरण',
+                    weather: 'मौसम',
+                    temp: 'तापमान',
+                    humidity: 'आर्द्रता',
+                    wind: 'हवा',
+                    rain: 'बारिश',
+                    weatherWarningDefault: 'भारी बारिश की संभावना - आज सिंचाई न करें!',
+                    irrigation: 'सिंचाई और उर्वरक',
+                    irrigSchedule: 'सिंचाई कार्यक्रम',
+                    npk: 'NPK अनुशंसा',
+                    stageAdvice: 'अवस्था सलाह',
+                    scanner: 'AI रोग स्कैनर',
+                    uploadHint: 'फोटो अपलोड करें या कैमरा खोलें',
+                    scanReady: 'तैयार',
+                    diagnosis: 'निदान',
+                    diseaseDefault: 'डाउनी मिल्ड्यू (Downy Mildew) पाया गया.',
+                    organic: 'जैविक',
+                    organicDefault: 'नीम तेल ५ml/ली',
+                    chemical: 'रासायनिक',
+                    chemicalDefault: 'मॅन्कोझेब ०.२%',
+                    apmc: 'APMC बाजार भाव',
+                    apmcDistrictLabel: 'जिला: लातूर',
+                    apmcDateLabel: 'तारीख: --',
+                    today: 'आज',
+                    avg: 'औसत',
+                    trend: 'रुझान',
+                    marketplaceHeader: 'लातूर -> Ausa में खरीदार',
+                    searchPlaceholder: 'गाँव खोजें...',
+                    noBuyers: 'कृपया ऊपर फॉर्म से जिला और तालुका चुनें',
+                    formTitle: 'खरीदार पंजीकरण / संशोधन',
+                    nameLabel: 'नाम',
+                    phoneLabel: 'मोबाइल',
+                    villageLabelForm: 'गाँव',
+                    pinLabel: '4-अंकीय सुरक्षा PIN',
+                    cropsRatesLabel: 'फसलें और दर',
+                    registerBtn: 'नया पंजीकरण करें',
+                    updateBtn: 'दर अपडेट करें',
+                    confirmBtn: 'बदल निश्चित करें',
+                    cancelBtn: 'रद्द करें',
+                    formStatusDefault: '',
+                    homeBtn: 'पीछे जाएं / Home',
+                    footer: '© 2026 महाकृषी · MahaKrishi | महाराष्ट्र शासन का आधिकारिक डिजिटल प्लेटफॉर्म',
+                    pinError: 'गलत पिन!',
+                    editMode: 'संशोधन मोड - बदल निश्चित करें',
+                    deleteConfirm: 'इस खरीदार को हटाना है?',
+                    deleted: 'खरीदार हटा दिया गया.',
+                    updateSuccess: 'संशोधन सफल!',
+                    registerSuccess: 'नया खरीदार पंजीकरण सफल!',
+                    existsError: 'यह मोबाइल नंबर पहले से पंजीकृत है. "दर अपडेट करें" का उपयोग करें.',
+                    notFound: 'यह मोबाइल नहीं मिला.',
+                    formError: 'सभी फील्ड भरें और 4-अंकीय PIN डालें.',
+                    cropError: 'कम से कम एक फसल और दर चुनें.',
+                    updateError: 'मोबाइल और 4-अंकीय PIN डालें.',
+                    scanning: 'स्कैनिंग...',
+                    scanComplete: 'स्कैन पूर्ण',
+                    disease1: 'डाउनी मिल्ड्यू (Downy Mildew)',
+                    disease2: 'पाउडर मिल्ड्यू',
+                    disease3: 'तुरई रोग',
+                    disease4: 'एफिड्स',
+                    disease5: 'टिक्का लीफ स्पॉट',
+                    organic1: 'नीम तेल ५ml/ली',
+                    organic2: 'सोडियम बाइकार्बोनेट ०.५%',
+                    organic3: 'लहसुन अर्क',
+                    organic4: 'बैसिलस थुरिंजिनसिस',
+                    chem1: 'मैन्कोज़ेब ०.२%',
+                    chem2: 'कॉपर ऑक्सीक्लोराइड ०.३%',
+                    chem3: 'थायोफेनेट मेथिल',
+                    chem4: 'क्लोरोथैलोनिल',
+                    day1: 'दिन १',
+                    day2: '२',
+                    day3: '३',
+                    day4: '४',
+                    day5: '५',
+                    loading: 'लोड हो रहा है...',
+                    contactBtn: 'संपर्क',
+                    entryDate: 'पंजीकरण तारीख',
+                    otherVillage: 'मेरा गाँव स्वयं लिखें / Type My Village Name'
+                },
+                en: {
+                    appTitle: 'MahaKrishi · महाकृषी',
+                    deptLine1: 'Government of Maharashtra · Agriculture Dept.',
+                    deptLine2: 'Government of Maharashtra · Agriculture Dept.',
+                    districtLabel: 'District',
+                    talukaLabel: 'Taluka',
+                    villageLabel: 'Village',
+                    villagePlaceholder: 'Search Village...',
+                    cropLabel: 'Crop',
+                    sowingLabel: 'Sowing Date',
+                    stageVegetative: 'Vegetative',
+                    getAdvisory: 'Get Smart Advisory',
+                    registerBuyerBtn: 'Register Buyer',
+                    weather: 'Weather',
+                    temp: 'Temperature',
+                    humidity: 'Humidity',
+                    wind: 'Wind',
+                    rain: 'Rain',
+                    weatherWarningDefault: 'Heavy rain expected - Do not irrigate today!',
+                    irrigation: 'Irrigation & Fertilizer',
+                    irrigSchedule: 'Irrigation Schedule',
+                    npk: 'NPK Recommendation',
+                    stageAdvice: 'Stage Advice',
+                    scanner: 'AI Disease Scanner',
+                    uploadHint: 'Upload photo or open camera',
+                    scanReady: 'Ready',
+                    diagnosis: 'Diagnosis',
+                    diseaseDefault: 'Downy Mildew detected.',
+                    organic: 'Organic',
+                    organicDefault: 'Neem Oil 5ml/L',
+                    chemical: 'Chemical',
+                    chemicalDefault: 'Mancozeb 0.2%',
+                    apmc: 'APMC Market Rates',
+                    apmcDistrictLabel: 'District: Latur',
+                    apmcDateLabel: 'Date: --',
+                    today: 'Today',
+                    avg: 'Average',
+                    trend: 'Trend',
+                    marketplaceHeader: 'Buyers in Latur -> Ausa',
+                    searchPlaceholder: 'Search Village...',
+                    noBuyers: 'Please select District and Taluka from the form above',
+                    formTitle: 'Buyer Registration / Edit',
+                    nameLabel: 'Name',
+                    phoneLabel: 'Phone',
+                    villageLabelForm: 'Village',
+                    pinLabel: '4-digit Security PIN',
+                    cropsRatesLabel: 'Crops & Rates',
+                    registerBtn: 'New Register',
+                    updateBtn: 'Update Rates',
+                    confirmBtn: 'Confirm Changes',
+                    cancelBtn: 'Cancel',
+                    formStatusDefault: '',
+                    homeBtn: 'Back / Home',
+                    footer: '© 2026 MahaKrishi · महाकृषी | Official Digital Platform of Government of Maharashtra',
+                    pinError: 'Incorrect PIN!',
+                    editMode: 'Edit Mode - Confirm Changes',
+                    deleteConfirm: 'Delete this buyer?',
+                    deleted: 'Buyer deleted.',
+                    updateSuccess: 'Update successful!',
+                    registerSuccess: 'New buyer registered successfully!',
+                    existsError: 'This phone number is already registered. Use "Update Rates".',
+                    notFound: 'Phone number not found.',
+                    formError: 'Please fill all fields and enter 4-digit PIN.',
+                    cropError: 'Select at least one crop and rate.',
+                    updateError: 'Enter phone and 4-digit PIN.',
+                    scanning: 'Scanning...',
+                    scanComplete: 'Scan Complete',
+                    disease1: 'Downy Mildew',
+                    disease2: 'Powdery Mildew',
+                    disease3: 'Turmeric Rot',
+                    disease4: 'Aphids',
+                    disease5: 'Tikka Leaf Spot',
+                    organic1: 'Neem Oil 5ml/L',
+                    organic2: 'Sodium Bicarbonate 0.5%',
+                    organic3: 'Garlic Extract',
+                    organic4: 'Bacillus thuringiensis',
+                    chem1: 'Mancozeb 0.2%',
+                    chem2: 'Copper Oxychloride 0.3%',
+                    chem3: 'Thiophanate Methyl',
+                    chem4: 'Chlorothalonil',
+                    day1: 'Day 1',
+                    day2: '2',
+                    day3: '3',
+                    day4: '4',
+                    day5: '5',
+                    loading: 'Loading...',
+                    contactBtn: 'Contact',
+                    entryDate: 'Registration Date',
+                    otherVillage: 'Type My Village Name'
+                }
+            };
+
+            let currentLang = 'mr';
+            let chartInstance = null;
+            let selectedDistrict = 'Latur';
+            let selectedTaluka = 'Ausa';
+            let isEditMode = false;
+
+            // ============================================================
+            // 3. DOM refs
+            // ============================================================
+            const langBtns = document.querySelectorAll('[data-lang]');
+            const districtSelect = document.getElementById('districtSelect');
+            const talukaSelect = document.getElementById('talukaSelect');
+            const cropSelect = document.getElementById('cropSelect');
+            const sowingDate = document.getElementById('sowingDate');
+            const cropStageDisplay = document.getElementById('cropStageDisplay');
+            const getAdvisoryBtn = document.getElementById('getAdvisoryBtn');
+            const advisoryDashboard = document.getElementById('advisoryDashboard');
+            const floatingHomeBtn = document.getElementById('floatingHomeBtn');
+            const toggleBuyerFormBtn = document.getElementById('toggleBuyerFormBtn');
+            const buyerForm = document.getElementById('buyerRegistrationForm');
+            const cancelFormBtn = document.getElementById('cancelFormBtn');
+            const cropPricingGrid = document.getElementById('cropPricingGrid');
+
+            const tempDisplay = document.getElementById('tempDisplay');
+            const humidityDisplay = document.getElementById('humidityDisplay');
+            const windDisplay = document.getElementById('windDisplay');
+            const rainDisplay = document.getElementById('rainDisplay');
+            const weatherWarning = document.getElementById('weatherWarning');
+            const irrigSchedule = document.getElementById('irrigSchedule');
+            const npkRecommend = document.getElementById('npkRecommend');
+            const stageAdvice = document.getElementById('stageAdvice');
+            const cameraZone = document.getElementById('cameraZone');
+            const scanStatus = document.getElementById('scanStatus');
+            const diseaseReport = document.getElementById('diseaseReport');
+            const reportContent = document.getElementById('reportContent');
+            const organicSolution = document.getElementById('organicSolution');
+            const chemicalSolution = document.getElementById('chemicalSolution');
+            const apmcDistrict = document.getElementById('apmcDistrict');
+            const apmcDate = document.getElementById('apmcDate');
+            const todayPrice = document.getElementById('todayPrice');
+            const avgPrice = document.getElementById('avgPrice');
+            const trendIndicator = document.getElementById('trendIndicator');
+            const marketplaceHeader = document.getElementById('marketplaceHeader');
+            const buyerSearch = document.getElementById('buyerSearch');
+            const buyerListContainer = document.getElementById('buyerListContainer');
+
+            const buyerName = document.getElementById('buyerName');
+            const buyerPhone = document.getElementById('buyerPhone');
+            const buyerVillage = document.getElementById('buyerVillage');
+            const buyerPin = document.getElementById('buyerPin');
+            const registerBuyerBtn = document.getElementById('registerBuyerBtn');
+            const updateBuyerBtn = document.getElementById('updateBuyerBtn');
+            const confirmChangesBtn = document.getElementById('confirmChangesBtn');
+            const formStatus = document.getElementById('formStatus');
+
+            const villageSearchInput = document.getElementById('villageSearchInput');
+            const villageDropdown = document.getElementById('villageDropdown');
+            const villageInput = document.getElementById('villageInput');
+            const otherVillageContainer = document.getElementById('otherVillageContainer');
+            const otherVillageInput = document.getElementById('otherVillageInput');
+
+            // ============================================================
+            // 4. Populate dropdowns with dynamic translation
+            // ============================================================
+            function populateDistricts() {
+                const dists = Object.keys(districtTalukaMap);
+                const lang = currentLang;
+                districtSelect.innerHTML = dists.map(d => {
+                    const trans = districtTranslations[lang] || districtTranslations['mr'];
+                    const display = trans[d] || d;
+                    return `<option value="${d}">${display}</option>`;
+                }).join('');
+                districtSelect.value = selectedDistrict;
+                updateTalukas(selectedDistrict);
+            }
+
+            function updateTalukas(dist) {
+                const talukas = districtTalukaMap[dist] || ['Ausa'];
+                talukaSelect.innerHTML = talukas.map(t =>
+                    `<option value="${t}">${t}</option>`
+                ).join('');
+                talukaSelect.value = talukas[0];
+                selectedTaluka = talukas[0];
+                populateVillages(selectedTaluka);
+                updateMarketplace();
+            }
+
+            function populateCrops() {
+                const lang = currentLang;
+                const trans = cropTranslations[lang] || cropTranslations['mr'];
+                cropSelect.innerHTML = allCrops.map(c =>
+                    `<option value="${c}">${trans[c] || c}</option>`
+                ).join('');
+                cropSelect.value = 'Soybean';
+            }
+
+            // ============================================================
+            // 5. Hybrid Village Search System
+            // ============================================================
+            function populateVillages(taluka) {
+                const villages = getVillagesForTaluka(taluka);
+                const lang = currentLang;
+                const otherText = i18n[lang].otherVillage || 'माझे गाव स्वतः लिहा / Type My Village Name';
+                let html = villages.map(v =>
+                    `<div class="village-option" data-value="${v}">${v}</div>`
+                ).join('');
+                html += `<div class="village-option other-village" data-value="__other__">${otherText}</div>`;
+                villageDropdown.innerHTML = html;
+                villageSearchInput.value = '';
+                villageInput.value = '';
+                otherVillageContainer.style.display = 'none';
+                villageDropdown.classList.remove('active');
+            }
+
+            function filterVillages(searchTerm) {
+                const villages = getVillagesForTaluka(selectedTaluka);
+                const lang = currentLang;
+                const otherText = i18n[lang].otherVillage || 'माझे गाव स्वतः लिहा / Type My Village Name';
+                const filtered = villages.filter(v =>
+                    v.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+                let html = filtered.map(v =>
+                    `<div class="village-option" data-value="${v}">${v}</div>`
+                ).join('');
+                html += `<div class="village-option other-village" data-value="__other__">${otherText}</div>`;
+                villageDropdown.innerHTML = html;
+                villageDropdown.classList.add('active');
+            }
+
+            villageSearchInput.addEventListener('input', function() {
+                const val = this.value.trim();
+                if (val.length > 0) {
+                    filterVillages(val);
+                } else {
+                    populateVillages(selectedTaluka);
+                }
+            });
+
+            villageSearchInput.addEventListener('focus', function() {
+                if (this.value.trim().length === 0) {
+                    populateVillages(selectedTaluka);
+                }
+                villageDropdown.classList.add('active');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.village-select-wrapper')) {
+                    villageDropdown.classList.remove('active');
+                }
+            });
+
+            villageDropdown.addEventListener('click', function(e) {
+                const option = e.target.closest('.village-option');
+                if (!option) return;
+                const value = option.dataset.value;
+                if (value === '__other__') {
+                    otherVillageContainer.style.display = 'block';
+                    villageSearchInput.value = '';
+                    villageInput.value = '';
+                    villageDropdown.classList.remove('active');
+                    otherVillageInput.focus();
+                } else {
+                    villageSearchInput.value = value;
+                    villageInput.value = value;
+                    otherVillageContainer.style.display = 'none';
+                    villageDropdown.classList.remove('active');
+                }
+            });
+
+            otherVillageInput.addEventListener('input', function() {
+                villageInput.value = this.value.trim() || '';
+            });
+
+            // ============================================================
+            // 6. Language Switch
+            // ============================================================
+            function setLanguage(lang) {
+                currentLang = lang;
+                langBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.dataset.i18n;
+                    if (i18n[lang] && i18n[lang][key] !== undefined) {
+                        el.textContent = i18n[lang][key];
+                    }
+                });
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.dataset.i18nPlaceholder;
+                    if (i18n[lang] && i18n[lang][key] !== undefined) {
+                        el.placeholder = i18n[lang][key];
+                    }
+                });
+                populateDistricts();
+                populateCrops();
+                const placeholderKey = 'villagePlaceholder';
+                if (i18n[lang] && i18n[lang][placeholderKey]) {
+                    villageSearchInput.placeholder = i18n[lang][placeholderKey];
+                }
+                if (otherVillageInput) {
+                    otherVillageInput.placeholder = i18n[lang].villagePlaceholder || 'गावाचे नाव लिहा...';
+                }
+                populateVillages(selectedTaluka);
+                updateCropStage();
+                if (chartInstance) {
+                    chartInstance.data.labels = [
+                        i18n[lang].day1 || 'दिवस १',
+                        i18n[lang].day2 || '२',
+                        i18n[lang].day3 || '३',
+                        i18n[lang].day4 || '४',
+                        i18n[lang].day5 || '५'
+                    ];
+                    chartInstance.update();
+                }
+                updateDateDisplay();
+                updateMarketplace();
+            }
+
+            // ============================================================
+            // 7. Date & Stage
+            // ============================================================
+            function updateDateDisplay() {
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = String(today.getMonth() + 1).padStart(2, '0');
+                const day = String(today.getDate()).padStart(2, '0');
+                const todayStr = `${year}-${month}-${day}`;
+                if (!sowingDate.value || sowingDate.value === '') {
+                    sowingDate.value = todayStr;
+                }
+                updateCropStage();
+                const dateObj = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const locale = currentLang === 'en' ? 'en-US' : 'mr-IN';
+                const dateStr = dateObj.toLocaleDateString(locale, options);
+                apmcDate.textContent = (i18n[currentLang].apmcDateLabel || 'तारीख: --').replace('--', dateStr);
+            }
+
+            function updateCropStage() {
+                const date = new Date(sowingDate.value);
+                const now = new Date();
+                const diff = (now - date) / (1000 * 60 * 60 * 24);
+                let stageKey = 'stageVegetative';
+                if (diff < 20) stageKey = 'stageGermination';
+                else if (diff < 45) stageKey = 'stageVegetative';
+                else if (diff < 70) stageKey = 'stageFlowering';
+                else stageKey = 'stageMature';
+                const stageMap = {
+                    mr: { stageGermination: 'अंकुरण', stageVegetative: 'वनस्पतिवत्', stageFlowering: 'फुलोरा',
+                        stageMature: 'पिकलेले' },
+                    hi: { stageGermination: 'अंकुरण', stageVegetative: 'वानस्पतिक', stageFlowering: 'फूल आना',
+                        stageMature: 'पका हुआ' },
+                    en: { stageGermination: 'Germination', stageVegetative: 'Vegetative', stageFlowering: 'Flowering',
+                        stageMature: 'Mature' }
+                };
+                cropStageDisplay.textContent = (stageMap[currentLang] && stageMap[currentLang][stageKey]) ||
+                    stageMap['mr'][stageKey] || 'वनस्पतिवत्';
+                return stageKey;
+            }
+
+            // ============================================================
+            // 8. Buyer CRUD with localStorage & PIN Security
+            // ============================================================
+            function getBuyers() {
+                try {
+                    return JSON.parse(localStorage.getItem('mahaKrishiBuyers')) || [];
+                } catch { return []; }
+            }
+
+            function saveBuyers(buyers) {
+                localStorage.setItem('mahaKrishiBuyers', JSON.stringify(buyers));
+            }
+
+            function renderBuyerCards(dist, tal, crop, search) {
+                const buyers = getBuyers();
+                const filtered = buyers.filter(b =>
+                    b.district === dist &&
+                    b.taluka === tal &&
+                    (b.village || '').toLowerCase().includes(search) &&
+                    b.crops && b.crops[crop] !== undefined
+                );
+                if (filtered.length === 0) {
+                    buyerListContainer.innerHTML =
+                        `<p class="text-gray-500 col-span-2 text-center py-4" data-i18n="noBuyers">कृपया वरील फॉर्ममधून जिल्हा व तालुका निवडा</p>`;
+                    const p = buyerListContainer.querySelector('p');
+                    if (p) {
+                        const key = p.dataset.i18n;
+                        if (key && i18n[currentLang] && i18n[currentLang][key]) {
+                            p.textContent = i18n[currentLang][key];
+                        }
+                    }
+                    return;
+                }
+                let html = '';
+                filtered.forEach((b, idx) => {
+                    const cropBadges = Object.keys(b.crops).map(c =>
+                        `<span class="crop-badge">${c}</span>`
+                    ).join('');
+                    const otherCrops = Object.keys(b.crops)
+                        .filter(c => c !== crop)
+                        .map(c => `<span class="price-badge">${c}: ₹${b.crops[c]}</span>`)
+                        .join(' ');
+                    const entryDate = b.entryDate || new Date().toLocaleDateString('mr-IN');
+                    html += `
+                        <div class="buyer-card bg-khadi p-4 rounded-xl card-shadow" data-idx="${idx}">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-gov-green text-lg">${b.name}</h3>
+                                    <p class="text-xs text-gray-500">${b.village}, ${b.taluka}</p>
+                                    <span class="entry-date"><i class="far fa-calendar-alt"></i> ${i18n[currentLang].entryDate || 'नोंदणी तारीख'}: ${entryDate}</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <button class="edit-buyer-btn text-blue-600 hover:text-blue-800 text-sm" data-idx="${idx}"><i class="fas fa-pencil-alt"></i></button>
+                                    <button class="delete-buyer-btn text-red-600 hover:text-red-800 text-sm" data-idx="${idx}"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="mt-1 flex flex-wrap gap-1">${cropBadges}</div>
+                            <div class="mt-2 flex items-center gap-3">
+                                <span class="font-bold text-gov-green">₹${b.crops[crop]}</span>
+                                <span class="text-xs text-gray-400">${crop} दर</span>
+                            </div>
+                            <div class="mt-1 flex flex-wrap gap-1">${otherCrops}</div>
+                            <div class="mt-2 flex gap-2">
+                                <button class="contact-buyer-btn bg-gov-green text-white px-3 py-1 rounded-full text-xs hover:bg-gov-green-light" data-phone="${b.phone}"><i class="fas fa-phone"></i> <span data-i18n="contactBtn">संपर्क</span></button>
+                            </div>
+                        </div>
+                    `;
+                });
+                buyerListContainer.innerHTML = html;
+
+                // Edit button with PIN
+                document.querySelectorAll('.edit-buyer-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const idx = parseInt(this.dataset.idx);
+                        const buyers = getBuyers();
+                        const b = buyers[idx];
+                        if (!b) return;
+                        const pin = prompt('4-अंकी सुरक्षा PIN प्रविष्ट करा / Enter 4-digit Security PIN:');
+                        if (pin === null) return;
+                        if (pin !== b.pin) {
+                            alert(i18n[currentLang].pinError || 'चुकीचा पिन!');
+                            return;
+                        }
+                        // Enter edit mode
+                        isEditMode = true;
+                        buyerName.value = b.name;
+                        buyerPhone.value = b.phone;
+                        buyerVillage.value = b.village;
+                        buyerPin.value = b.pin;
+                        document.querySelectorAll('.crop-check').forEach(chk => {
+                            const crop = chk.value;
+                            if (b.crops[crop] !== undefined) {
+                                chk.checked = true;
+                                const priceInput = chk.closest('div').querySelector('.crop-price');
+                                priceInput.classList.remove('hidden');
+                                priceInput.value = b.crops[crop];
+                            } else {
+                                chk.checked = false;
+                                const priceInput = chk.closest('div').querySelector('.crop-price');
+                                priceInput.classList.add('hidden');
+                                priceInput.value = '';
+                            }
+                        });
+                        buyerForm.classList.add('form-visible');
+                        buyerForm.classList.remove('hidden-form');
+                        // Hide register, show confirm
+                        registerBuyerBtn.classList.add('btn-hidden');
+                        updateBuyerBtn.classList.add('btn-hidden');
+                        confirmChangesBtn.classList.remove('btn-hidden');
+                        confirmChangesBtn.dataset.editIdx = idx;
+                        formStatus.textContent = i18n[currentLang].editMode || 'दुरुस्ती मोड - बदल निश्चित करा';
+                        window.scrollTo({ top: buyerForm.offsetTop - 20, behavior: 'smooth' });
+                    });
+                });
+
+                // Delete button with PIN
+                document.querySelectorAll('.delete-buyer-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const idx = parseInt(this.dataset.idx);
+                        const buyers = getBuyers();
+                        const b = buyers[idx];
+                        if (!b) return;
+                        const pin = prompt('4-अंकी सुरक्षा PIN प्रविष्ट करा / Enter 4-digit Security PIN:');
+                        if (pin === null) return;
+                        if (pin !== b.pin) {
+                            alert(i18n[currentLang].pinError || 'चुकीचा पिन!');
+                            return;
+                        }
+                        if (confirm(i18n[currentLang].deleteConfirm || `"${b.name}" हटवायचा?`)) {
+                            buyers.splice(idx, 1);
+                            saveBuyers(buyers);
+                            updateMarketplace();
+                            formStatus.textContent = i18n[currentLang].deleted || 'खरेदीदार हटवला.';
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.contact-buyer-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const phone = this.dataset.phone;
+                        if (phone) window.location.href = `tel:${phone}`;
+                    });
+                });
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.dataset.i18n;
+                    if (i18n[currentLang] && i18n[currentLang][key] !== undefined) {
+                        el.textContent = i18n[currentLang][key];
+                    }
+                });
+            }
+
+            // ============================================================
+            // 9. Register / Update / Confirm Buyer
+            // ============================================================
+            function getCropsFromForm() {
+                const crops = {};
+                document.querySelectorAll('.crop-check:checked').forEach(chk => {
+                    const crop = chk.value;
+                    const priceInput = chk.closest('div').querySelector('.crop-price');
+                    const price = parseFloat(priceInput.value);
+                    if (!isNaN(price) && price > 0) {
+                        crops[crop] = price;
+                    }
+                });
+                return crops;
+            }
+
+            function resetForm() {
+                buyerName.value = '';
+                buyerPhone.value = '';
+                buyerVillage.value = '';
+                buyerPin.value = '';
+                document.querySelectorAll('.crop-check').forEach(chk => {
+                    chk.checked = false;
+                    const priceInput = chk.closest('div').querySelector('.crop-price');
+                    priceInput.classList.add('hidden');
+                    priceInput.value = '';
+                });
+                registerBuyerBtn.classList.remove('btn-hidden');
+                updateBuyerBtn.classList.remove('btn-hidden');
+                confirmChangesBtn.classList.add('btn-hidden');
+                delete confirmChangesBtn.dataset.editIdx;
+                buyerForm.classList.add('hidden-form');
+                buyerForm.classList.remove('form-visible');
+                isEditMode = false;
+                formStatus.textContent = '';
+            }
+
+            registerBuyerBtn.addEventListener('click', function() {
+                const name = buyerName.value.trim();
+                const phone = buyerPhone.value.trim();
+                const village = buyerVillage.value.trim();
+                const pin = buyerPin.value.trim();
+                if (!name || !phone || !village || pin.length !== 4) {
+                    alert(i18n[currentLang].formError || 'सर्व फील्ड भरा आणि 4-अंकी PIN टाका.');
+                    return;
+                }
+                const crops = getCropsFromForm();
+                if (Object.keys(crops).length === 0) {
+                    alert(i18n[currentLang].cropError || 'किमान एक पीक आणि दर निवडा.');
+                    return;
+                }
+                const buyers = getBuyers();
+                const district = selectedDistrict;
+                const taluka = selectedTaluka;
+                const today = new Date();
+                const entryDate = today.toLocaleDateString('mr-IN');
+
+                const existing = buyers.find(b => b.phone === phone);
+                if (existing) {
+                    alert(i18n[currentLang].existsError || 'हा मोबाइल क्रमांक आधीच नोंदणीकृत आहे. "दर अपडेट करा" वापरा.');
+                    return;
+                }
+                buyers.push({ name, phone, village, pin, crops, district, taluka, entryDate });
+                saveBuyers(buyers);
+                formStatus.textContent = i18n[currentLang].registerSuccess || 'नवीन खरेदीदार नोंदणी यशस्वी!';
+                resetForm();
+                updateMarketplace();
+            });
+
+            updateBuyerBtn.addEventListener('click', function() {
+                const phone = buyerPhone.value.trim();
+                const pin = buyerPin.value.trim();
+                if (!phone || pin.length !== 4) {
+                    alert(i18n[currentLang].updateError || 'मोबाइल आणि 4-अंकी PIN टाका.');
+                    return;
+                }
+                const buyers = getBuyers();
+                const idx = buyers.findIndex(b => b.phone === phone);
+                if (idx === -1) { alert(i18n[currentLang].notFound || 'हा मोबाइल आढळला नाही.'); return; }
+                if (buyers[idx].pin !== pin) { alert(i18n[currentLang].pinError || 'चुकीचा PIN!'); return; }
+                const crops = getCropsFromForm();
+                if (Object.keys(crops).length === 0) {
+                    alert(i18n[currentLang].cropError || 'किमान एक पीक आणि दर निवडा.');
+                    return;
+                }
+                const today = new Date();
+                buyers[idx] = { ...buyers[idx], crops, name: buyerName.value.trim(), village: buyerVillage.value.trim(),
+                    entryDate: today.toLocaleDateString('mr-IN') };
+                saveBuyers(buyers);
+                formStatus.textContent = i18n[currentLang].updateSuccess || 'दर अपडेट यशस्वी!';
+                resetForm();
+                updateMarketplace();
+            });
+
+            confirmChangesBtn.addEventListener('click', function() {
+                const idx = parseInt(this.dataset.editIdx);
+                const buyers = getBuyers();
+                if (idx === undefined || !buyers[idx]) {
+                    alert('काहीतरी चूक झाली. कृपया पुन्हा प्रयत्न करा.');
+                    return;
+                }
+                const name = buyerName.value.trim();
+                const phone = buyerPhone.value.trim();
+                const village = buyerVillage.value.trim();
+                const pin = buyerPin.value.trim();
+                if (!name || !phone || !village || pin.length !== 4) {
+                    alert(i18n[currentLang].formError || 'सर्व फील्ड भरा आणि 4-अंकी PIN टाका.');
+                    return;
+                }
+                const crops = getCropsFromForm();
+                if (Object.keys(crops).length === 0) {
+                    alert(i18n[currentLang].cropError || 'किमान एक पीक आणि दर निवडा.');
+                    return;
+                }
+                if (buyers[idx].pin !== pin) {
+                    alert(i18n[currentLang].pinError || 'चुकीचा PIN!');
+                    return;
+                }
+                const today = new Date();
+                buyers[idx] = { ...buyers[idx], name, phone, village, pin, crops, entryDate: today.toLocaleDateString(
+                        'mr-IN') };
+                saveBuyers(buyers);
+                formStatus.textContent = i18n[currentLang].updateSuccess || 'दुरुस्ती यशस्वी!';
+                resetForm();
+                updateMarketplace();
+            });
+
+            cancelFormBtn.addEventListener('click', resetForm);
+
+            toggleBuyerFormBtn.addEventListener('click', function() {
+                if (buyerForm.classList.contains('hidden-form')) {
+                    buyerForm.classList.remove('hidden-form');
+                    buyerForm.classList.add('form-visible');
+                    registerBuyerBtn.classList.remove('btn-hidden');
+                    updateBuyerBtn.classList.remove('btn-hidden');
+                    confirmChangesBtn.classList.add('btn-hidden');
+                } else {
+                    resetForm();
+                }
+            });
+
+            // ============================================================
+            // 10. Update marketplace
+            // ============================================================
+            districtSelect.addEventListener('change', function() {
+                selectedDistrict = this.value;
+                updateTalukas(selectedDistrict);
+                updateMarketplace();
+                const distTrans = districtTranslations[currentLang]?.[selectedDistrict] || selectedDistrict;
+                apmcDistrict.textContent = (i18n[currentLang].apmcDistrictLabel || 'जिल्हा: लातूर').replace('लातूर',
+                    distTrans);
+            });
+
+            talukaSelect.addEventListener('change', function() {
+                selectedTaluka = this.value;
+                populateVillages(selectedTaluka);
+                updateMarketplace();
+            });
+
+            cropSelect.addEventListener('change', updateMarketplace);
+            buyerSearch.addEventListener('input', updateMarketplace);
+
+            function updateMarketplace() {
+                const dist = selectedDistrict;
+                const tal = selectedTaluka;
+                const crop = cropSelect.value;
+                const search = buyerSearch.value.toLowerCase();
+                const distTrans = districtTranslations[currentLang]?.[dist] || dist;
+                marketplaceHeader.textContent = (i18n[currentLang].marketplaceHeader || `${dist} -> ${tal} मधील खरेदीदार`)
+                    .replace('लातूर', distTrans).replace('Ausa', tal);
+                renderBuyerCards(dist, tal, crop, search);
+            }
+
+            // ============================================================
+            // 11. Advisory / Weather fetch with correct pathing
+            // ============================================================
+            async function fetchAdvisoryData() {
+                try {
+                    const resp = await fetch('https://cdn.jsdelivr.net/gh/MaxSensAI/MahaKrishi/data.json');
+                    if (!resp.ok) throw new Error('Network');
+                    return await resp.json();
+                } catch (e) {
+                    console.warn('Using fallback advisory data');
+                    return null;
+                }
+            }
+
+            function updateDashboard(data) {
+                const d = data || {};
+                const district = selectedDistrict;
+                const crop = cropSelect.value;
+
+                const weatherData = d[district]?.weather || null;
+                if (weatherData) {
+                    tempDisplay.textContent = (weatherData.temp || 32) + '°C';
+                    humidityDisplay.textContent = (weatherData.humidity || 68) + '%';
+                    windDisplay.textContent = (weatherData.wind || 12) + ' km/h';
+                    rainDisplay.textContent = (weatherData.rain || 15) + '%';
+                    const warning = weatherData.warning || i18n[currentLang].weatherWarningDefault ||
+                        'मुसळधार पावसाचा अंदाज - आज सिंचन करू नका!';
+                    weatherWarning.innerHTML = `<i class="fas fa-exclamation-triangle"></i> <span>${warning}</span>`;
+                } else {
+                    tempDisplay.textContent = '32°C';
+                    humidityDisplay.textContent = '68%';
+                    windDisplay.textContent = '12 km/h';
+                    rainDisplay.textContent = '15%';
+                    weatherWarning.innerHTML =
+                        `<i class="fas fa-exclamation-triangle"></i> <span>${i18n[currentLang].weatherWarningDefault || 'मुसळधार पावसाचा अंदाज - आज सिंचन करू नका!'}</span>`;
+                }
+
+                const cropData = d[district]?.crops?.[crop] || null;
+                if (cropData) {
+                    todayPrice.textContent = '₹' + (cropData.price || 2200);
+                    const hist = cropData.history || [2100, 2120, 2150, 2180, 2200];
+                    const avg = hist.reduce((a, b) => a + b, 0) / hist.length;
+                    avgPrice.textContent = '₹' + Math.round(avg);
+                    const trend = ((hist[hist.length - 1] - hist[0]) / hist[0] * 100).toFixed(1);
+                    const trendSymbol = trend >= 0 ? '+' : '';
+                    trendIndicator.innerHTML =
+                        `${trendSymbol}${trend}% <i class="fas fa-${trend >= 0 ? 'arrow-up text-green-600' : 'arrow-down text-red-600'}"></i>`;
+                    updateChart(hist);
+                } else {
+                    const fallbackPrices = [2100, 2120, 2150, 2180, 2200];
+                    todayPrice.textContent = '₹2200';
+                    avgPrice.textContent = '₹2150';
+                    trendIndicator.innerHTML = '+2% <i class="fas fa-arrow-up text-green-600"></i>';
+                    updateChart(fallbackPrices);
+                }
+
+                const npkData = d[district]?.npk || { npk: '12:32:16', schedule: i18n[currentLang].irrigSchedule ||
+                        'दर ३ दिवस', stage: i18n[currentLang].stageAdvice || 'वनस्पतिवत् - नायट्रोजन वाढवा' };
+                irrigSchedule.textContent = npkData.schedule || 'दर ३ दिवस';
+                npkRecommend.textContent = npkData.npk || '12:32:16';
+                stageAdvice.textContent = npkData.stage || 'वनस्पतिवत् - नायट्रोजन वाढवा';
+            }
+
+            function updateChart(hist) {
+                const ctx = document.getElementById('priceChart').getContext('2d');
+                if (chartInstance) chartInstance.destroy();
+                chartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: [
+                            i18n[currentLang].day1 || 'दिवस १',
+                            i18n[currentLang].day2 || '२',
+                            i18n[currentLang].day3 || '३',
+                            i18n[currentLang].day4 || '४',
+                            i18n[currentLang].day5 || '५'
+                        ],
+                        datasets: [{ label: i18n[currentLang].apmc || 'APMC दर (₹/क्विंटल)', data: hist,
+                            borderColor: '#1e4a3a', backgroundColor: 'rgba(30,74,58,0.05)', tension: 0.2,
+                            pointBackgroundColor: '#d4a02b', pointRadius: 4, fill: true }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+                        scales: { y: { beginAtZero: false, grid: { color: 'rgba(0,0,0,0.04)' } } } }
+                });
+            }
+
+            // ============================================================
+            // 12. AI Scanner
+            // ============================================================
+            function simulateScan() {
+                scanStatus.innerHTML = '<i class="fas fa-spinner fa-spin text-gov-gold"></i> ' + (i18n[currentLang]
+                    .scanning || 'स्कॅनिंग...');
+                cameraZone.classList.add('glow-loading');
+                setTimeout(() => {
+                    cameraZone.classList.remove('glow-loading');
+                    scanStatus.textContent = '✅ ' + (i18n[currentLang].scanComplete || 'स्कॅन पूर्ण');
+                    diseaseReport.classList.remove('hidden');
+                    const diseases = [
+                        i18n[currentLang].disease1 || 'डाउनी मिल्ड्यू (Downy Mildew)',
+                        i18n[currentLang].disease2 || 'पावडर मिल्ड्यू',
+                        i18n[currentLang].disease3 || 'तुरई रोग',
+                        i18n[currentLang].disease4 || 'अफिड्स',
+                        i18n[currentLang].disease5 || 'टिक्का लीफ स्पॉट'
+                    ];
+                    const organic = [
+                        i18n[currentLang].organic1 || 'नीम तेल ५ml/ली',
+                        i18n[currentLang].organic2 || 'सोडियम बायकार्बोनेट ०.५%',
+                        i18n[currentLang].organic3 || 'लसूण अर्क',
+                        i18n[currentLang].organic4 || 'बॅसिलस थुरिंजिनसिस'
+                    ];
+                    const chemical = [
+                        i18n[currentLang].chem1 || 'मॅन्कोझेब ०.२%',
+                        i18n[currentLang].chem2 || 'कॉपर ऑक्सिक्लोराईड ०.३%',
+                        i18n[currentLang].chem3 || 'थायोफेनेट मेथिल',
+                        i18n[currentLang].chem4 || 'क्लोरोथॅलोनिल'
+                    ];
+                    const idx = Math.floor(Math.random() * diseases.length);
+                    reportContent.textContent = diseases[idx] || 'डाउनी मिल्ड्यू आढळला.';
+                    organicSolution.textContent = organic[idx % organic.length] || 'नीम तेल ५ml/ली';
+                    chemicalSolution.textContent = chemical[idx % chemical.length] || 'मॅन्कोझेब ०.२%';
+                }, 1800);
+            }
+
+            // ============================================================
+            // 13. Main Refresh
+            // ============================================================
+            async function refreshAdvisory() {
+                getAdvisoryBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (i18n[currentLang].loading ||
+                    'लोड होत आहे...');
+                const data = await fetchAdvisoryData();
+                advisoryDashboard.classList.remove('hidden');
+                floatingHomeBtn.classList.add('visible');
+                updateDashboard(data);
+                getAdvisoryBtn.innerHTML = '<i class="fas fa-magic"></i> <span data-i18n="getAdvisory">' + (i18n[
+                    currentLang].getAdvisory || 'स्मार्ट सल्ला मिळवा') + '</span>';
+                setLanguage(currentLang);
+                updateCropStage();
+                updateDateDisplay();
+                const distTrans = districtTranslations[currentLang]?.[selectedDistrict] || selectedDistrict;
+                apmcDistrict.textContent = (i18n[currentLang].apmcDistrictLabel || 'जिल्हा: लातूर').replace('लातूर',
+                    distTrans);
+                updateMarketplace();
+            }
+
+            // ============================================================
+            // 14. Floating Home Button
+            // ============================================================
+            floatingHomeBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                villageDropdown.classList.remove('active');
+            });
+
+            // ============================================================
+            // 15. Event binding
+            // ============================================================
+            getAdvisoryBtn.addEventListener('click', refreshAdvisory);
+            cameraZone.addEventListener('click', simulateScan);
+            sowingDate.addEventListener('change', updateCropStage);
+
+            langBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setLanguage(btn.dataset.lang);
+                    if (!advisoryDashboard.classList.contains('hidden')) {
+                        updateMarketplace();
+                        updateCropStage();
+                        if (chartInstance) {
+                            chartInstance.data.labels = [
+                                i18n[currentLang].day1 || 'दिवस १',
+                                i18n[currentLang].day2 || '२',
+                                i18n[currentLang].day3 || '३',
+                                i18n[currentLang].day4 || '४',
+                                i18n[currentLang].day5 || '५'
+                            ];
+                            chartInstance.update();
+                        }
+                    }
+                    updateDateDisplay();
+                });
+            });
+
+            // ============================================================
+            // 16. Build crop pricing grid
+            // ============================================================
+            function buildCropPricingGrid() {
+                cropPricingGrid.innerHTML = '';
+                allCrops.forEach(crop => {
+                    const div = document.createElement('div');
+                    div.className = 'flex items-center gap-1 text-xs';
+                    div.innerHTML = `
+                        <input type="checkbox" class="crop-check" value="${crop}" />
+                        <span class="w-16 truncate">${crop}</span>
+                        <input type="number" class="crop-price w-16 p-0.5 border rounded hidden" placeholder="दर" />
+                    `;
+                    cropPricingGrid.appendChild(div);
+                    const check = div.querySelector('.crop-check');
+                    const priceInput = div.querySelector('.crop-price');
+                    check.addEventListener('change', () => {
+                        if (check.checked) {
+                            priceInput.classList.remove('hidden');
+                        } else {
+                            priceInput.classList.add('hidden');
+                            priceInput.value = '';
+                        }
+                    });
+                });
+            }
+
+            // ============================================================
+            // 17. INIT
+            // ============================================================
+            populateDistricts();
+            populateCrops();
+            buildCropPricingGrid();
+            setLanguage('mr');
+            updateDateDisplay();
+            updateCropStage();
+            updateMarketplace();
+            updateChart([2100, 2120, 2150, 2180, 2200]);
+
+            if (!advisoryDashboard.classList.contains('hidden')) {
+                floatingHomeBtn.classList.add('visible');
+            }
+
+            window.mahaKrishi = { districtTalukaMap, allCrops, getBuyers, saveBuyers, setLanguage, i18n };
+
+        })();
+    </script>
+
+</body>
+</html>

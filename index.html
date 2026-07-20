@@ -1599,7 +1599,8 @@
             // ============================================================
             async function fetchAdvisoryData() {
                 try {
-                    const resp = await fetch('https://cdn.jsdelivr.net/gh/MaxSensAI/MahaKrishi/data.json');
+                    // FIXED: Correct GitHub username is 'MaxSensial' not 'MaxSensAI'
+                    const resp = await fetch('https://cdn.jsdelivr.net/gh/MaxSensial/MahaKrishi/data.json');
                     if (!resp.ok) throw new Error('Network');
                     return await resp.json();
                 } catch (e) {

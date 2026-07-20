@@ -1,371 +1,387 @@
 {
   "Latur": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
+    "last_updated": "7/20/2026, 10:06:47 PM",
     "weather": {
-      "temp": "25°C",
+      "temp": "24°C",
       "desc": "overcast clouds",
-      "humidity": "74%",
-      "rain_prob": "Low/Moderate"
+      "humidity": "81%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
     },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
+    "crops": {}
   },
-  "Pune": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
+  "Beed": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
     "weather": {
       "temp": "25°C",
       "desc": "overcast clouds",
       "humidity": "76%",
-      "rain_prob": "Low/Moderate"
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
     },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
+    "crops": {}
+  },
+  "Pune": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "25°C",
+      "desc": "overcast clouds",
+      "humidity": "80%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
   },
   "Nashik": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
+    "last_updated": "7/20/2026, 10:06:47 PM",
     "weather": {
       "temp": "23°C",
       "desc": "overcast clouds",
-      "humidity": "91%",
-      "rain_prob": "Low/Moderate"
+      "humidity": "90%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
     },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
+    "crops": {}
   },
   "Nagpur": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
+    "last_updated": "7/20/2026, 10:06:47 PM",
     "weather": {
       "temp": "27°C",
       "desc": "overcast clouds",
-      "humidity": "81%",
-      "rain_prob": "Low/Moderate"
+      "humidity": "80%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
     },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
+    "crops": {}
   },
   "Jalgaon": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
+    "last_updated": "7/20/2026, 10:06:47 PM",
     "weather": {
-      "temp": "31°C",
-      "desc": "moderate rain",
-      "humidity": "57%",
-      "rain_prob": "High Probability"
+      "temp": "30°C",
+      "desc": "overcast clouds",
+      "humidity": "62%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
     },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
+    "crops": {}
   },
   "Satara": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "22°C",
+      "desc": "overcast clouds",
+      "humidity": "91%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Solapur": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "26°C",
+      "desc": "overcast clouds",
+      "humidity": "76%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Akola": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "28°C",
+      "desc": "light rain",
+      "humidity": "71%",
+      "rain_prob": "High Probability",
+      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
+    },
+    "crops": {}
+  },
+  "Amravati": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "77%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Kolhapur": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
     "weather": {
       "temp": "22°C",
       "desc": "overcast clouds",
       "humidity": "90%",
-      "rain_prob": "Low/Moderate"
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
     },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
+    "crops": {}
   },
-  "Solapur": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
+  "Aurangabad": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "25°C",
+      "desc": "overcast clouds",
+      "humidity": "76%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Sangli": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "23°C",
+      "desc": "overcast clouds",
+      "humidity": "86%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Chandrapur": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "28°C",
+      "desc": "overcast clouds",
+      "humidity": "78%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Ahmednagar": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "24°C",
+      "desc": "overcast clouds",
+      "humidity": "84%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Bhandara": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "82%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Buldhana": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "25°C",
+      "desc": "overcast clouds",
+      "humidity": "77%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Dhule": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "29°C",
+      "desc": "overcast clouds",
+      "humidity": "62%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Gadchiroli": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "30°C",
+      "desc": "Sunny",
+      "humidity": "55%",
+      "rain_prob": "10%",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Gondia": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "26°C",
+      "desc": "overcast clouds",
+      "humidity": "89%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Hingoli": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "25°C",
+      "desc": "overcast clouds",
+      "humidity": "82%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Mumbai": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "28°C",
+      "desc": "broken clouds",
+      "humidity": "80%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Nanded": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "30°C",
+      "desc": "Sunny",
+      "humidity": "55%",
+      "rain_prob": "10%",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Nandurbar": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "75%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Osmanabad": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "24°C",
+      "desc": "overcast clouds",
+      "humidity": "82%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Palghar": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "broken clouds",
+      "humidity": "83%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Parbhani": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "74%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Raigad": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "30°C",
+      "desc": "Sunny",
+      "humidity": "55%",
+      "rain_prob": "10%",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Ratnagiri": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "84%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Sindhudurg": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "30°C",
+      "desc": "Sunny",
+      "humidity": "55%",
+      "rain_prob": "10%",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Thane": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "79%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Wardha": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "77%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Washim": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "24°C",
+      "desc": "overcast clouds",
+      "humidity": "87%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Yavatmal": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "overcast clouds",
+      "humidity": "74%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Jalna": {
+    "last_updated": "7/20/2026, 10:06:47 PM",
     "weather": {
       "temp": "26°C",
       "desc": "overcast clouds",
       "humidity": "74%",
-      "rain_prob": "Low/Moderate"
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
     },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
-  },
-  "Akola": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
-    "weather": {
-      "temp": "31°C",
-      "desc": "moderate rain",
-      "humidity": "58%",
-      "rain_prob": "High Probability"
-    },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
-  },
-  "Amravati": {
-    "last_updated": "7/20/2026, 7:52:46 PM",
-    "weather": {
-      "temp": "31°C",
-      "desc": "overcast clouds",
-      "humidity": "58%",
-      "rain_prob": "Low/Moderate"
-    },
-    "crops": {
-      "Soybean": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Cotton": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Sugarcane": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Tur": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Onion": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      },
-      "Grapes": {
-        "price": "4500",
-        "date": "Check Local Mandi",
-        "status": "offline"
-      }
-    }
+    "crops": {}
   }
 }

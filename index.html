@@ -1193,6 +1193,21 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 📰 लाइव सरकारी योजना अलार्म कार्ड -->
+                <div class="bg-white rounded-2xl card-shadow p-5 border-l-8 border-gov-green">
+                    <h2 class="text-lg font-bold text-gov-green flex items-center gap-2">
+                        <i class="fas fa-bullhorn text-gov-gold"></i> 
+                        <span data-i18n="liveSchemesHeader">📰 थेट सरकारी योजना अलार्म (Live Updates)</span>
+                    </h2>
+                    <p class="text-xs text-gray-500 mt-1" data-i18n="liveSchemesSub">तुमच्या जिल्ह्यासाठी महाराष्ट्र शासनाचे थेट आणि खात्रीशीर सरकारी जीआर (GR)</p>
+                    
+                    <!-- लाइव योजनाएं यहाँ लोड होंगी -->
+                    <div id="liveSchemesContainer" class="mt-4 space-y-3 max-h-60 overflow-y-auto">
+                        <div class="text-center text-sm text-gray-500" data-i18n="loading">⏳ योजना शोधत आहे...</div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -1463,7 +1478,7 @@
                 "Nandurbar": ["Nandurbar", "Shahada", "Talode", "Navapur", "Akkalkuwa"],
                 "Dhule": ["Dhule", "Shirpur", "Sindkheda", "Sakri"],
                 "Jalna": ["Jalna", "Bhokardan", "Jafferabad", "Badnapur", "Ghansawangi", "Ambad", "Partur"],
-                "Parbhani": ["Parbhani", "Jintur", "Pathri", "Manwat", "Palam", "Gangakhed", "Sailu", "Sonpeth"],
+                "Parbhani": ["Parbhani", "Jintur", "Pathri", "Mainwat", "Palam", "Gangakhed", "Sailu", "Sonpeth"],
                 "Hingoli": ["Hingoli", "Aundha Nagnath", "Kalamnuri", "Sengaon", "Basmath"],
                 "Nanded": ["Nanded", "Deglur", "Mudkhed", "Biloli", "Dharmabad", "Hadgaon", "Himayatnagar", "Kinwat", "Loha", "Mahur", "Mokhed", "Naigaon", "Umri"],
                 "Osmanabad": ["Osmanabad", "Tuljapur", "Bhoom", "Kalamb", "Washi", "Paranda"],
@@ -1741,7 +1756,7 @@
                     disease2: 'पावडर मिल्ड्यू',
                     disease3: 'तुरई रोग',
                     disease4: 'अफिड्स',
-                    disease5: 'टिक्का लीफ स्पॉट',
+                    disease5: 'टिक्का लीफスポット',
                     organic1: 'नीम तेल ५ml/ली',
                     organic2: 'सोडियम बायकार्बोनेट ०.५%',
                     organic3: 'लसूण अर्क',
@@ -1768,7 +1783,7 @@
                     scheme3Title: 'कृषी अनुदान',
                     scheme3Desc: 'उपलब्ध शेती अनुदानांबद्दल माहिती मिळवा.',
                     learnMore: 'अधिक जाणून घ्या →',
-                    setupProfile: 'शेतकरी प्रोफाइल सेटअप',
+                    setupProfile: 'शेतकरी प्रोफाइल設置',
                     saveProfile: 'माहिती जतन करा / Save Profile',
                     toolsHeading: 'कृषी साधने',
                     editProfile: '✏️ माहिती दुरुस्त करा',
@@ -1806,7 +1821,13 @@
                     selectVillage: 'गाव निवडा',
                     selectCrop: 'पीक निवडा',
                     close: 'बंद करा',
-                    typeManually: '✏️ गाव स्वतः लिहा / Type Manually'
+                    typeManually: '✏️ गाव स्वतः लिहा / Type Manually',
+                    liveSchemesHeader: '📰 थेट सरकारी योजना अलार्म (Live Updates)',
+                    liveSchemesSub: 'तुमच्या जिल्ह्यासाठी महाराष्ट्र शासनाचे थेट आणि खात्रीशीर सरकारी जीआर (GR)',
+                    noSchemes: 'सध्या तुमच्या जिल्ह्यासाठी नवीन अपडेट उपलब्ध नाही.',
+                    applyOrViewGr: 'थेट अर्ज करा / GR पहा →',
+                    newSchemeTag: 'नवीन जीआर / योजना',
+                    schemeLoadError: 'योजना लोड करताना त्रुटी आली.'
                 },
                 hi: {
                     appTitle: 'महाकृषी · MahaKrishi',
@@ -1942,7 +1963,13 @@
                     selectVillage: 'गाँव चुनें',
                     selectCrop: 'फसल चुनें',
                     close: 'बंद करें',
-                    typeManually: '✏️ गाँव स्वयं लिखें / Type Manually'
+                    typeManually: '✏️ गाँव स्वयं लिखें / Type Manually',
+                    liveSchemesHeader: '📰 सरकारी योजना अलर्ट (Live Updates)',
+                    liveSchemesSub: 'आपके जिले के लिए महाराष्ट्र सरकार के सीधे और प्रमाणित सरकारी जीआर (GR)',
+                    noSchemes: 'वर्तमान में आपके जिले के लिए कोई नया अपडेट उपलब्ध नहीं है।',
+                    applyOrViewGr: 'सीधा आवेदन करें / GR देखें →',
+                    newSchemeTag: 'नया जीआर / योजना',
+                    schemeLoadError: 'योजना लोड करते समय त्रुटि आई।'
                 },
                 en: {
                     appTitle: 'MahaKrishi · महाकृषी',
@@ -2078,7 +2105,13 @@
                     selectVillage: 'Select Village',
                     selectCrop: 'Select Crop',
                     close: 'Close',
-                    typeManually: '✏️ Type Manually'
+                    typeManually: '✏️ Type Manually',
+                    liveSchemesHeader: '📰 Live Government Scheme Alerts',
+                    liveSchemesSub: 'Direct and verified Government GRs for your district',
+                    noSchemes: 'Currently, no new updates are available for your district.',
+                    applyOrViewGr: 'Apply Direct / View GR →',
+                    newSchemeTag: 'New GR / Scheme',
+                    schemeLoadError: 'Error loading schemes.'
                 }
             };
 
@@ -2150,6 +2183,8 @@
                 }
                 // Update trigger button labels
                 updateTriggerLabels();
+                // Load Schemes in New Language
+                loadLiveSchemes();
             }
 
             function updateModalTitles() {
@@ -2698,6 +2733,51 @@
                 updateLandLocationDisplay();
             }
 
+            // Fetch Live Government Schemes from Firestore matching user district
+            async function loadLiveSchemes() {
+                const container = document.getElementById('liveSchemesContainer');
+                if (!container) return;
+
+                const lang = currentLang;
+                const noSchemesMsg = i18n[lang].noSchemes || 'सध्या तुमच्या जिल्ह्यासाठी नवीन अपडेट उपलब्ध नाही.';
+                const applyBtnText = i18n[lang].applyOrViewGr || 'थेट अर्ज करा / GR पहा →';
+                const tagText = i18n[lang].newSchemeTag || 'नवीन जीआर / योजना';
+                const errorMsg = i18n[lang].schemeLoadError || 'योजना लोड करताना त्रुटी आली.';
+
+                try {
+                    const querySnapshot = await window.fsGetDocs(window.fsCollection(window.db, "schemes"));
+                    let html = '';
+                    let count = 0;
+
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+                        // Filter for schemes applicable to "All" or the user's selected district
+                        if (data.applicable_districts && (data.applicable_districts.includes("All") || data.applicable_districts.includes(selectedDistrict))) {
+                            count++;
+                            html += `
+                                <div class="p-3 bg-khadi rounded-xl border border-gray-150 hover:border-gov-gold transition card-shadow">
+                                    <span class="text-[10px] text-gov-gold font-bold tracking-wider uppercase block">${tagText}</span>
+                                    <h4 class="font-bold text-gov-green text-sm mt-1">${data.title}</h4>
+                                    <div class="flex justify-between items-center mt-3">
+                                        <span class="text-[10px] text-gray-400">${data.published}</span>
+                                        <a href="${data.link}" target="_blank" class="bg-gov-green text-white px-3 py-1 rounded-full text-xs hover:bg-gov-green-light font-bold">${applyBtnText}</a>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+
+                    if (count === 0) {
+                        container.innerHTML = `<p class="text-center text-gray-500 text-xs py-4">${noSchemesMsg}</p>`;
+                    } else {
+                        container.innerHTML = html;
+                    }
+                } catch (e) {
+                    console.error("योजना लोड करने में विफलता:", e);
+                    container.innerHTML = `<p class="text-center text-red-500 text-xs py-4">${errorMsg}</p>`;
+                }
+            }
+
             function updateTalukas(dist) {
                 if (!talukaSelect) return;
                 const talukas = districtTalukaMap[dist] || ['Ausa'];
@@ -3156,7 +3236,7 @@
             if (gunthaInput) gunthaInput.addEventListener('input', convertLand);
 
             // ============================================================
-            // BUYER FUNCTIONS - FIRESTORE INTEGRATION (Preserved)
+            // BUYER FUNCTIONS - FIRESTORE INTEGRATION
             // ============================================================
 
             async function fetchBuyersFromFirestore() {
@@ -4049,6 +4129,7 @@
                 const data = await fetchAdvisoryData();
                 updateDashboard(data);
                 updateDateDisplay();
+                await loadLiveSchemes();
             }
 
             if (floatingHomeBtn) {

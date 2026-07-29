@@ -1,0 +1,30 @@
+name: 24/7 MahaKrishi Auto-Crawl Scanner
+
+on:
+  schedule:
+    # हर 15 मिनट में स्वचालित रूप से चलने के लिए
+    - cron: '*/15 * * * *'
+  workflow_dispatch: # जरूरत पड़ने पर मॅन्युअल रूप से चलाने के लिए
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: |
+        pip install firebase-admin
+
+    - name: Run Agricultural Live Scraper
+      env:
+        # गिटहब सीक्रेट से सुरक्षित रूप से फ़ायरबेस की लोड करना
+        FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      run: python update_schemes.py

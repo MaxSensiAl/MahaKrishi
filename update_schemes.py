@@ -20,7 +20,7 @@ FEED_URL = "https://mahasarkar.co.in/feed/"
 AGRI_KEYWORDS = ["शेतकरी", "विहीर", "सौर", "सोलर", "पीक विमा", "ठिबक", "अनुदान", "कुसुम", "शेततळे", "ट्रॅक्टर", "कर्जमाफी"]
 DISTRICTS = ["Latur", "Beed", "Nanded", "Pune", "Nashik", "Nagpur", "Thane", "Jalgaon", "Amravati", "Akola", "Solapur", "Satara", "Kolhapur"]
 
-# live_updates नामक कॉमन टॉपिक पर फ़्री पुश नोटिफिकेशन भेजने का फ़ंक्शन
+# फ़्री पुश नोटिफिकेशन भेजने का फ़ंक्शन
 def send_push_notification(title_text):
     try:
         message = messaging.Message(
@@ -28,12 +28,27 @@ def send_push_notification(title_text):
                 title="MahaKrishi: नवीन योजना अलर्ट! 🌾",
                 body=title_text
             ),
-            topic="live_updates" # सभी सब्सक्राइब्ड किसानों के लिए कॉमन टॉपिक
+            topic="live_updates"
         )
         response = messaging.send(message)
         print("📢 नोटिफिकेशन सफलतापूर्वक भेजा गया:", response)
     except Exception as e:
         print("⚠️ नोटिफिकेशन भेजने में त्रुटि:", str(e))
+
+# 🧹 पुरानी और समाप्त हो चुकी योजनाओं को डेटाबेस से अपने आप डिलीट करने का जुगाड़
+def delete_expired_schemes():
+    try:
+        now = datetime.utcnow()
+        # ऐसी योजनाएं खोजना जिनकी एक्सपायरी तारीख अभी के समय से कम हो चुकी है
+        expired_docs = db.collection("schemes").where("expireAt", "<", now).get()
+        
+        for doc in expired_docs:
+            title = doc.to_dict().get("title")
+            db.collection("schemes").document(doc.id).delete()
+            print(f"🗑️ पुरानी योजना समाप्त होने के कारण डिलीट की गई: {title}")
+            
+    except Exception as e:
+        print("⚠️ सफाई के दौरान त्रुटि आई:", str(e))
 
 def fetch_and_update_schemes():
     try:
@@ -64,7 +79,6 @@ def fetch_and_update_schemes():
                 existing = db.collection("schemes").where("link", "==", link).limit(1).get()
                 
                 if len(existing) == 0:
-                    # १. अगर योजना नई है, तो उसे जोड़ें और पुश नोटिफिकेशन भेजें
                     db.collection("schemes").add({
                         "title": title,
                         "link": link,
@@ -75,7 +89,6 @@ def fetch_and_update_schemes():
                     print(f"✅ नई योजना जोड़ी गई: {title}")
                     send_push_notification(title)
                 else:
-                    # २. अगर योजना पहले से मौजूद है लेकिन शीर्षक बदल गया है, तो उसे अपडेट करें और समय बढ़ाएं
                     doc_id = existing[0].id
                     old_data = existing[0].to_dict()
                     if old_data.get("title") != title:
@@ -84,7 +97,7 @@ def fetch_and_update_schemes():
                             "published": pub_date,
                             "expireAt": expire_time
                         })
-                        print(f"🔄 योजना का अपडेटेड वर्जन सेव किया गया: {title}")
+                        print(f"🔄 योजना अपडेट की गई: {title}")
                         send_push_notification(f"अपडेटेड: {title}")
                 
     except Exception as e:
@@ -92,3 +105,4 @@ def fetch_and_update_schemes():
 
 if __name__ == "__main__":
     fetch_and_update_schemes()
+    delete_expired_schemes() # हर बार चलने पर पुरानी योजनाओं को डिलीट करेगा

@@ -1,17 +1,6 @@
 {
   "Latur": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
-    "weather": {
-      "temp": "29°C",
-      "desc": "light rain",
-      "humidity": "54%",
-      "rain_prob": "High Probability",
-      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
-    },
-    "crops": {}
-  },
-  "Beed": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "29°C",
       "desc": "overcast clouds",
@@ -21,41 +10,85 @@
     },
     "crops": {}
   },
-  "Pune": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+  "Beed": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "30°C",
+      "temp": "29°C",
+      "desc": "overcast clouds",
+      "humidity": "58%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Pune": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
+    "weather": {
+      "temp": "31°C",
       "desc": "scattered clouds",
-      "humidity": "47%",
+      "humidity": "44%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Nashik": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "27°C",
       "desc": "light rain",
-      "humidity": "72%",
+      "humidity": "73%",
       "rain_prob": "High Probability",
       "warning": "मुसळधार पाऊस - सिंचन करू नका!"
     },
     "crops": {}
   },
   "Nagpur": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
+    "weather": {
+      "temp": "31°C",
+      "desc": "light rain",
+      "humidity": "62%",
+      "rain_prob": "High Probability",
+      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
+    },
+    "crops": {}
+  },
+  "Jalgaon": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "30°C",
       "desc": "overcast clouds",
-      "humidity": "66%",
+      "humidity": "61%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
-  "Jalgaon": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+  "Satara": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
+    "weather": {
+      "temp": "27°C",
+      "desc": "broken clouds",
+      "humidity": "69%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Solapur": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
+    "weather": {
+      "temp": "31°C",
+      "desc": "overcast clouds",
+      "humidity": "45%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Akola": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "30°C",
       "desc": "overcast clouds",
@@ -65,140 +98,107 @@
     },
     "crops": {}
   },
-  "Satara": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
-    "weather": {
-      "temp": "26°C",
-      "desc": "broken clouds",
-      "humidity": "69%",
-      "rain_prob": "Low/Moderate",
-      "warning": "सामान्य हवामान"
-    },
-    "crops": {}
-  },
-  "Solapur": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
-    "weather": {
-      "temp": "31°C",
-      "desc": "overcast clouds",
-      "humidity": "47%",
-      "rain_prob": "Low/Moderate",
-      "warning": "सामान्य हवामान"
-    },
-    "crops": {}
-  },
-  "Akola": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+  "Amravati": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "30°C",
-      "desc": "light rain",
-      "humidity": "60%",
-      "rain_prob": "High Probability",
-      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
-    },
-    "crops": {}
-  },
-  "Amravati": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
-    "weather": {
-      "temp": "29°C",
-      "desc": "broken clouds",
-      "humidity": "66%",
+      "desc": "overcast clouds",
+      "humidity": "63%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Kolhapur": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "27°C",
-      "desc": "light rain",
-      "humidity": "74%",
-      "rain_prob": "High Probability",
-      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
+      "desc": "broken clouds",
+      "humidity": "72%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Aurangabad": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "28°C",
+      "temp": "29°C",
       "desc": "overcast clouds",
-      "humidity": "65%",
+      "humidity": "61%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Sangli": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "29°C",
-      "desc": "broken clouds",
-      "humidity": "58%",
-      "rain_prob": "Low/Moderate",
-      "warning": "सामान्य हवामान"
+      "temp": "30°C",
+      "desc": "light rain",
+      "humidity": "57%",
+      "rain_prob": "High Probability",
+      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
     },
     "crops": {}
   },
   "Chandrapur": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "30°C",
+      "temp": "31°C",
       "desc": "light rain",
-      "humidity": "68%",
+      "humidity": "64%",
       "rain_prob": "High Probability",
       "warning": "मुसळधार पाऊस - सिंचन करू नका!"
     },
     "crops": {}
   },
   "Ahmednagar": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "29°C",
       "desc": "overcast clouds",
-      "humidity": "52%",
+      "humidity": "51%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Bhandara": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "29°C",
       "desc": "light rain",
-      "humidity": "75%",
+      "humidity": "71%",
       "rain_prob": "High Probability",
       "warning": "मुसळधार पाऊस - सिंचन करू नका!"
     },
     "crops": {}
   },
   "Buldhana": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "28°C",
+      "temp": "29°C",
       "desc": "overcast clouds",
-      "humidity": "62%",
+      "humidity": "60%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Dhule": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "31°C",
       "desc": "overcast clouds",
-      "humidity": "53%",
+      "humidity": "55%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Gadchiroli": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "30°C",
       "desc": "Sunny",
@@ -209,31 +209,9 @@
     "crops": {}
   },
   "Gondia": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "27°C",
-      "desc": "light rain",
-      "humidity": "84%",
-      "rain_prob": "High Probability",
-      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
-    },
-    "crops": {}
-  },
-  "Hingoli": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
-    "weather": {
-      "temp": "30°C",
-      "desc": "broken clouds",
-      "humidity": "60%",
-      "rain_prob": "Low/Moderate",
-      "warning": "सामान्य हवामान"
-    },
-    "crops": {}
-  },
-  "Mumbai": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
-    "weather": {
-      "temp": "29°C",
+      "temp": "28°C",
       "desc": "light rain",
       "humidity": "79%",
       "rain_prob": "High Probability",
@@ -241,8 +219,30 @@
     },
     "crops": {}
   },
+  "Hingoli": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
+    "weather": {
+      "temp": "31°C",
+      "desc": "broken clouds",
+      "humidity": "55%",
+      "rain_prob": "Low/Moderate",
+      "warning": "सामान्य हवामान"
+    },
+    "crops": {}
+  },
+  "Mumbai": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
+    "weather": {
+      "temp": "29°C",
+      "desc": "light rain",
+      "humidity": "74%",
+      "rain_prob": "High Probability",
+      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
+    },
+    "crops": {}
+  },
   "Nanded": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "30°C",
       "desc": "Sunny",
@@ -253,29 +253,29 @@
     "crops": {}
   },
   "Nandurbar": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "30°C",
-      "desc": "overcast clouds",
-      "humidity": "64%",
-      "rain_prob": "Low/Moderate",
-      "warning": "सामान्य हवामान"
+      "temp": "31°C",
+      "desc": "light rain",
+      "humidity": "62%",
+      "rain_prob": "High Probability",
+      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
     },
     "crops": {}
   },
   "Osmanabad": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "29°C",
+      "temp": "28°C",
       "desc": "overcast clouds",
-      "humidity": "53%",
+      "humidity": "54%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Palghar": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "29°C",
       "desc": "light rain",
@@ -286,18 +286,18 @@
     "crops": {}
   },
   "Parbhani": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "32°C",
-      "desc": "scattered clouds",
-      "humidity": "45%",
+      "desc": "broken clouds",
+      "humidity": "46%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Raigad": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "30°C",
       "desc": "Sunny",
@@ -308,18 +308,18 @@
     "crops": {}
   },
   "Ratnagiri": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "29°C",
       "desc": "light rain",
-      "humidity": "76%",
+      "humidity": "75%",
       "rain_prob": "High Probability",
       "warning": "मुसळधार पाऊस - सिंचन करू नका!"
     },
     "crops": {}
   },
   "Sindhudurg": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "30°C",
       "desc": "Sunny",
@@ -330,42 +330,31 @@
     "crops": {}
   },
   "Thane": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "29°C",
       "desc": "light rain",
-      "humidity": "79%",
+      "humidity": "74%",
       "rain_prob": "High Probability",
       "warning": "मुसळधार पाऊस - सिंचन करू नका!"
     },
     "crops": {}
   },
   "Wardha": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
-      "temp": "30°C",
+      "temp": "31°C",
       "desc": "overcast clouds",
-      "humidity": "64%",
+      "humidity": "62%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
     "crops": {}
   },
   "Washim": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "28°C",
-      "desc": "light rain",
-      "humidity": "66%",
-      "rain_prob": "High Probability",
-      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
-    },
-    "crops": {}
-  },
-  "Yavatmal": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
-    "weather": {
-      "temp": "29°C",
       "desc": "light rain",
       "humidity": "64%",
       "rain_prob": "High Probability",
@@ -373,12 +362,23 @@
     },
     "crops": {}
   },
-  "Jalna": {
-    "last_updated": "8/20/2026, 12:26:03 PM",
+  "Yavatmal": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
     "weather": {
       "temp": "30°C",
+      "desc": "light rain",
+      "humidity": "62%",
+      "rain_prob": "High Probability",
+      "warning": "मुसळधार पाऊस - सिंचन करू नका!"
+    },
+    "crops": {}
+  },
+  "Jalna": {
+    "last_updated": "8/20/2026, 1:18:34 PM",
+    "weather": {
+      "temp": "31°C",
       "desc": "broken clouds",
-      "humidity": "55%",
+      "humidity": "53%",
       "rain_prob": "Low/Moderate",
       "warning": "सामान्य हवामान"
     },
